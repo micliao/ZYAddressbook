@@ -19,6 +19,7 @@
 		8359AF47195981F100519EF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359AF2F195981F100519EF7 /* UIKit.framework */; };
 		8359AF4F195981F100519EF7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8359AF4D195981F100519EF7 /* InfoPlist.strings */; };
 		8359AF51195981F100519EF7 /* ZYAddressbookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8359AF50195981F100519EF7 /* ZYAddressbookTests.m */; };
+		ED9A78FD195983CF0016A739 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED9A78FC195983CF0016A739 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		8359AF4C195981F100519EF7 /* ZYAddressbookTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZYAddressbookTests-Info.plist"; sourceTree = "<group>"; };
 		8359AF4E195981F100519EF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8359AF50195981F100519EF7 /* ZYAddressbookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYAddressbookTests.m; sourceTree = "<group>"; };
+		ED9A78FC195983CF0016A739 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				8359AF3B195981F100519EF7 /* ZYAppDelegate.m */,
 				8359AF3D195981F100519EF7 /* Images.xcassets */,
 				8359AF32195981F100519EF7 /* Supporting Files */,
+				ED9A78FC195983CF0016A739 /* Main.storyboard */,
 			);
 			path = ZYAddressbook;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED9A78FD195983CF0016A739 /* Main.storyboard in Resources */,
 				8359AF36195981F100519EF7 /* InfoPlist.strings in Resources */,
 				8359AF3E195981F100519EF7 /* Images.xcassets in Resources */,
 			);
@@ -438,6 +442,7 @@
 				8359AF56195981F100519EF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8359AF57195981F100519EF7 /* Build configuration list for PBXNativeTarget "ZYAddressbookTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +451,7 @@
 				8359AF59195981F100519EF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
