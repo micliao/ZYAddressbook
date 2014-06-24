@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8359AF2C195981F100519EF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359AF2B195981F100519EF7 /* Foundation.framework */; };
+		8359AF2E195981F100519EF7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359AF2D195981F100519EF7 /* CoreGraphics.framework */; };
+		8359AF30195981F100519EF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359AF2F195981F100519EF7 /* UIKit.framework */; };
+		8359AF36195981F100519EF7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8359AF34195981F100519EF7 /* InfoPlist.strings */; };
+		8359AF38195981F100519EF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8359AF37195981F100519EF7 /* main.m */; };
+		8359AF3C195981F100519EF7 /* ZYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8359AF3B195981F100519EF7 /* ZYAppDelegate.m */; };
+		8359AF3E195981F100519EF7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8359AF3D195981F100519EF7 /* Images.xcassets */; };
+		8359AF45195981F100519EF7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359AF44195981F100519EF7 /* XCTest.framework */; };
+		8359AF46195981F100519EF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359AF2B195981F100519EF7 /* Foundation.framework */; };
+		8359AF47195981F100519EF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359AF2F195981F100519EF7 /* UIKit.framework */; };
+		8359AF4F195981F100519EF7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8359AF4D195981F100519EF7 /* InfoPlist.strings */; };
+		8359AF51195981F100519EF7 /* ZYAddressbookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8359AF50195981F100519EF7 /* ZYAddressbookTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8359AF48195981F100519EF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8359AF20195981F100519EF7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8359AF27195981F100519EF7;
+			remoteInfo = ZYAddressbook;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8359AF28195981F100519EF7 /* ZYAddressbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYAddressbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8359AF2B195981F100519EF7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8359AF2D195981F100519EF7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8359AF2F195981F100519EF7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8359AF33195981F100519EF7 /* ZYAddressbook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZYAddressbook-Info.plist"; sourceTree = "<group>"; };
+		8359AF35195981F100519EF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8359AF37195981F100519EF7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8359AF39195981F100519EF7 /* ZYAddressbook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZYAddressbook-Prefix.pch"; sourceTree = "<group>"; };
+		8359AF3A195981F100519EF7 /* ZYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYAppDelegate.h; sourceTree = "<group>"; };
+		8359AF3B195981F100519EF7 /* ZYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYAppDelegate.m; sourceTree = "<group>"; };
+		8359AF3D195981F100519EF7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8359AF43195981F100519EF7 /* ZYAddressbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYAddressbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8359AF44195981F100519EF7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8359AF4C195981F100519EF7 /* ZYAddressbookTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZYAddressbookTests-Info.plist"; sourceTree = "<group>"; };
+		8359AF4E195981F100519EF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8359AF50195981F100519EF7 /* ZYAddressbookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYAddressbookTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8359AF25195981F100519EF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8359AF2E195981F100519EF7 /* CoreGraphics.framework in Frameworks */,
+				8359AF30195981F100519EF7 /* UIKit.framework in Frameworks */,
+				8359AF2C195981F100519EF7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8359AF40195981F100519EF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8359AF45195981F100519EF7 /* XCTest.framework in Frameworks */,
+				8359AF47195981F100519EF7 /* UIKit.framework in Frameworks */,
+				8359AF46195981F100519EF7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8359AF1F195981F100519EF7 = {
+			isa = PBXGroup;
+			children = (
+				8359AF31195981F100519EF7 /* ZYAddressbook */,
+				8359AF4A195981F100519EF7 /* ZYAddressbookTests */,
+				8359AF2A195981F100519EF7 /* Frameworks */,
+				8359AF29195981F100519EF7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8359AF29195981F100519EF7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8359AF28195981F100519EF7 /* ZYAddressbook.app */,
+				8359AF43195981F100519EF7 /* ZYAddressbookTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8359AF2A195981F100519EF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8359AF2B195981F100519EF7 /* Foundation.framework */,
+				8359AF2D195981F100519EF7 /* CoreGraphics.framework */,
+				8359AF2F195981F100519EF7 /* UIKit.framework */,
+				8359AF44195981F100519EF7 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8359AF31195981F100519EF7 /* ZYAddressbook */ = {
+			isa = PBXGroup;
+			children = (
+				8359AF3A195981F100519EF7 /* ZYAppDelegate.h */,
+				8359AF3B195981F100519EF7 /* ZYAppDelegate.m */,
+				8359AF3D195981F100519EF7 /* Images.xcassets */,
+				8359AF32195981F100519EF7 /* Supporting Files */,
+			);
+			path = ZYAddressbook;
+			sourceTree = "<group>";
+		};
+		8359AF32195981F100519EF7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8359AF33195981F100519EF7 /* ZYAddressbook-Info.plist */,
+				8359AF34195981F100519EF7 /* InfoPlist.strings */,
+				8359AF37195981F100519EF7 /* main.m */,
+				8359AF39195981F100519EF7 /* ZYAddressbook-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8359AF4A195981F100519EF7 /* ZYAddressbookTests */ = {
+			isa = PBXGroup;
+			children = (
+				8359AF50195981F100519EF7 /* ZYAddressbookTests.m */,
+				8359AF4B195981F100519EF7 /* Supporting Files */,
+			);
+			path = ZYAddressbookTests;
+			sourceTree = "<group>";
+		};
+		8359AF4B195981F100519EF7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8359AF4C195981F100519EF7 /* ZYAddressbookTests-Info.plist */,
+				8359AF4D195981F100519EF7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8359AF27195981F100519EF7 /* ZYAddressbook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8359AF54195981F100519EF7 /* Build configuration list for PBXNativeTarget "ZYAddressbook" */;
+			buildPhases = (
+				8359AF24195981F100519EF7 /* Sources */,
+				8359AF25195981F100519EF7 /* Frameworks */,
+				8359AF26195981F100519EF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZYAddressbook;
+			productName = ZYAddressbook;
+			productReference = 8359AF28195981F100519EF7 /* ZYAddressbook.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8359AF42195981F100519EF7 /* ZYAddressbookTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8359AF57195981F100519EF7 /* Build configuration list for PBXNativeTarget "ZYAddressbookTests" */;
+			buildPhases = (
+				8359AF3F195981F100519EF7 /* Sources */,
+				8359AF40195981F100519EF7 /* Frameworks */,
+				8359AF41195981F100519EF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8359AF49195981F100519EF7 /* PBXTargetDependency */,
+			);
+			name = ZYAddressbookTests;
+			productName = ZYAddressbookTests;
+			productReference = 8359AF43195981F100519EF7 /* ZYAddressbookTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8359AF20195981F100519EF7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ZY;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = zy;
+				TargetAttributes = {
+					8359AF42195981F100519EF7 = {
+						TestTargetID = 8359AF27195981F100519EF7;
+					};
+				};
+			};
+			buildConfigurationList = 8359AF23195981F100519EF7 /* Build configuration list for PBXProject "ZYAddressbook" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8359AF1F195981F100519EF7;
+			productRefGroup = 8359AF29195981F100519EF7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8359AF27195981F100519EF7 /* ZYAddressbook */,
+				8359AF42195981F100519EF7 /* ZYAddressbookTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8359AF26195981F100519EF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8359AF36195981F100519EF7 /* InfoPlist.strings in Resources */,
+				8359AF3E195981F100519EF7 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8359AF41195981F100519EF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8359AF4F195981F100519EF7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8359AF24195981F100519EF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8359AF38195981F100519EF7 /* main.m in Sources */,
+				8359AF3C195981F100519EF7 /* ZYAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8359AF3F195981F100519EF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8359AF51195981F100519EF7 /* ZYAddressbookTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8359AF49195981F100519EF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8359AF27195981F100519EF7 /* ZYAddressbook */;
+			targetProxy = 8359AF48195981F100519EF7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8359AF34195981F100519EF7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8359AF35195981F100519EF7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8359AF4D195981F100519EF7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8359AF4E195981F100519EF7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8359AF52195981F100519EF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8359AF53195981F100519EF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8359AF55195981F100519EF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZYAddressbook/ZYAddressbook-Prefix.pch";
+				INFOPLIST_FILE = "ZYAddressbook/ZYAddressbook-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8359AF56195981F100519EF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZYAddressbook/ZYAddressbook-Prefix.pch";
+				INFOPLIST_FILE = "ZYAddressbook/ZYAddressbook-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8359AF58195981F100519EF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZYAddressbook.app/ZYAddressbook";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZYAddressbook/ZYAddressbook-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ZYAddressbookTests/ZYAddressbookTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8359AF59195981F100519EF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZYAddressbook.app/ZYAddressbook";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZYAddressbook/ZYAddressbook-Prefix.pch";
+				INFOPLIST_FILE = "ZYAddressbookTests/ZYAddressbookTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8359AF23195981F100519EF7 /* Build configuration list for PBXProject "ZYAddressbook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8359AF52195981F100519EF7 /* Debug */,
+				8359AF53195981F100519EF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8359AF54195981F100519EF7 /* Build configuration list for PBXNativeTarget "ZYAddressbook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8359AF55195981F100519EF7 /* Debug */,
+				8359AF56195981F100519EF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8359AF57195981F100519EF7 /* Build configuration list for PBXNativeTarget "ZYAddressbookTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8359AF58195981F100519EF7 /* Debug */,
+				8359AF59195981F100519EF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8359AF20195981F100519EF7 /* Project object */;
+}
