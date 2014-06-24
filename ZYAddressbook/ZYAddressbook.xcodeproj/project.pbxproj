@@ -109,6 +109,7 @@
 		8359AF31195981F100519EF7 /* ZYAddressbook */ = {
 			isa = PBXGroup;
 			children = (
+				ED9A78FE19598B680016A739 /* Controller */,
 				8359AF3A195981F100519EF7 /* ZYAppDelegate.h */,
 				8359AF3B195981F100519EF7 /* ZYAppDelegate.m */,
 				8359AF3D195981F100519EF7 /* Images.xcassets */,
@@ -145,6 +146,13 @@
 				8359AF4D195981F100519EF7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ED9A78FE19598B680016A739 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
