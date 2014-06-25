@@ -6,11 +6,11 @@
 //  Copyright (c) 2014年 zy. All rights reserved.
 //
 
-#import "HttpRequest.h"
+#import "ZYHttpRequest.h"
 
-@implementation HttpRequest
+@implementation ZYHttpRequest
 
--(HttpRequest*)initWithRequestUrl:(NSString*)requestUrl method:(NSString*)method respenseDelegate:(id<HttpResponseDelegate>)delegate
+-(ZYHttpRequest*)initWithRequestUrl:(NSString*)requestUrl method:(NSString*)method respenseDelegate:(id<ZYHttpResponseDelegate>)delegate
 {
     self -> httpRequestUrl =[[NSURL alloc] initWithString:(requestUrl)];
     self -> httpMethod = method;

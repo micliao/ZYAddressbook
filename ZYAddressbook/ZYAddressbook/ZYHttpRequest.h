@@ -7,21 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HttpResponseDelegate.h"
+#import "ZYHttpResponseDelegate.h"
 
 /*!
     @interface HttpRequest http请求封装
  */
-@interface HttpRequest : NSObject <NSURLConnectionDataDelegate>
+@interface ZYHttpRequest : NSObject <NSURLConnectionDataDelegate>
 {
-    id<HttpResponseDelegate> httpResponseDelegate;
+    id<ZYHttpResponseDelegate> httpResponseDelegate;
     NSString *httpMethod;
     NSURL *httpRequestUrl;
     NSMutableDictionary *paramaters;
     NSString *paramaterFormat;
 }
 
--(HttpRequest*)initWithRequestUrl:(NSString*)requestUrl method:(NSString*)method respenseDelegate:(id<HttpResponseDelegate>)delegate;
+-(ZYHttpRequest*)initWithRequestUrl:(NSString*)requestUrl method:(NSString*)method respenseDelegate:(id<ZYHttpResponseDelegate>)delegate;
 
 -(void)addParamater:(NSString*)paramaterName addParamaterValue:(NSString*)paramaterValue;
 

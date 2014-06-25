@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol HttpResponseDelegate <NSObject>
+@protocol ZYHttpResponseDelegate <NSObject>
 
 @optional
 /*!

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		83203DD5195A61AB00AE3849 /* HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83203DD4195A61AB00AE3849 /* HttpRequest.m */; };
+		83203DD5195A61AB00AE3849 /* ZYHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83203DD4195A61AB00AE3849 /* ZYHttpRequest.m */; };
 		8359AF2C195981F100519EF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359AF2B195981F100519EF7 /* Foundation.framework */; };
 		8359AF2E195981F100519EF7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359AF2D195981F100519EF7 /* CoreGraphics.framework */; };
 		8359AF30195981F100519EF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359AF2F195981F100519EF7 /* UIKit.framework */; };
@@ -37,9 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		83203DD3195A61AB00AE3849 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
-		83203DD4195A61AB00AE3849 /* HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequest.m; sourceTree = "<group>"; };
-		83203DD8195A641300AE3849 /* HttpResponseDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpResponseDelegate.h; sourceTree = "<group>"; };
+		83203DD3195A61AB00AE3849 /* ZYHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYHttpRequest.h; sourceTree = "<group>"; };
+		83203DD4195A61AB00AE3849 /* ZYHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYHttpRequest.m; sourceTree = "<group>"; };
+		83203DD8195A641300AE3849 /* ZYHttpResponseDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHttpResponseDelegate.h; sourceTree = "<group>"; };
 		8359AF28195981F100519EF7 /* ZYAddressbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYAddressbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8359AF2B195981F100519EF7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8359AF2D195981F100519EF7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,9 +137,9 @@
 		83203DD6195A630100AE3849 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				83203DD3195A61AB00AE3849 /* HttpRequest.h */,
-				83203DD4195A61AB00AE3849 /* HttpRequest.m */,
-				83203DD8195A641300AE3849 /* HttpResponseDelegate.h */,
+				83203DD3195A61AB00AE3849 /* ZYHttpRequest.h */,
+				83203DD4195A61AB00AE3849 /* ZYHttpRequest.m */,
+				83203DD8195A641300AE3849 /* ZYHttpResponseDelegate.h */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -326,7 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83203DD5195A61AB00AE3849 /* HttpRequest.m in Sources */,
+				83203DD5195A61AB00AE3849 /* ZYHttpRequest.m in Sources */,
 				8359AF38195981F100519EF7 /* main.m in Sources */,
 				ED9A7905195A7CD70016A739 /* ZYUser.m in Sources */,
 				ED9A7902195A7C330016A739 /* ZYUserDao.m in Sources */,
