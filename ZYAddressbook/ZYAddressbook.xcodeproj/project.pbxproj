@@ -76,6 +76,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83203DCE195A5EE900AE3849 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		83203DCF195A5EEF00AE3849 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Dao;
+			sourceTree = "<group>";
+		};
+		83203DD0195A5EF500AE3849 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		83203DD1195A5EFC00AE3849 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		83203DD2195A5F0000AE3849 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		8359AF1F195981F100519EF7 = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +144,12 @@
 		8359AF31195981F100519EF7 /* ZYAddressbook */ = {
 			isa = PBXGroup;
 			children = (
+				83203DD2195A5F0000AE3849 /* Extension */,
+				83203DD0195A5EF500AE3849 /* Service */,
+				83203DCF195A5EEF00AE3849 /* Dao */,
+				83203DCE195A5EE900AE3849 /* View */,
 				ED9A78FE19598B680016A739 /* Controller */,
+				83203DD1195A5EFC00AE3849 /* Model */,
 				8359AF3A195981F100519EF7 /* ZYAppDelegate.h */,
 				8359AF3B195981F100519EF7 /* ZYAppDelegate.m */,
 				8359AF3D195981F100519EF7 /* Images.xcassets */,
