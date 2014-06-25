@@ -12,13 +12,13 @@
 
 @optional
 /*!
- @method httpRequestSuccess 调用成功后执行方法
+ @method httpRequestSuccess: 调用成功后执行方法
  @param responseData http访问返回结果
  */
 - (void)httpRequestSuccess:(NSString *)responseData;
 
 /*!
- @method httpRequestSuccess 调用成功后执行方法
+ @method httpRequestSuccess: 调用成功后执行方法
  @param errorMsg http访问错误信息
  */
 -(void)httpRequestFaild:(NSString *)errorMsg;
