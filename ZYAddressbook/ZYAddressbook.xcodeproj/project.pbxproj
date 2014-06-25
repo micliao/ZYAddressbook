@@ -21,6 +21,9 @@
 		8359AF4F195981F100519EF7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8359AF4D195981F100519EF7 /* InfoPlist.strings */; };
 		8359AF51195981F100519EF7 /* ZYAddressbookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8359AF50195981F100519EF7 /* ZYAddressbookTests.m */; };
 		ED9A78FD195983CF0016A739 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED9A78FC195983CF0016A739 /* Main.storyboard */; };
+		ED9A7902195A7C330016A739 /* ZYUserDao.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7901195A7C330016A739 /* ZYUserDao.m */; };
+		ED9A7905195A7CD70016A739 /* ZYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7904195A7CD70016A739 /* ZYUser.m */; };
+		ED9A7908195A7FAF0016A739 /* ZYUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7907195A7FAF0016A739 /* ZYUserService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,14 @@
 		8359AF4E195981F100519EF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8359AF50195981F100519EF7 /* ZYAddressbookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYAddressbookTests.m; sourceTree = "<group>"; };
 		ED9A78FC195983CF0016A739 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		ED9A78FF195A7A9B0016A739 /* ZYDaoDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYDaoDelegate.h; sourceTree = "<group>"; };
+		ED9A7900195A7C330016A739 /* ZYUserDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYUserDao.h; sourceTree = "<group>"; };
+		ED9A7901195A7C330016A739 /* ZYUserDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYUserDao.m; sourceTree = "<group>"; };
+		ED9A7903195A7CD70016A739 /* ZYUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYUser.h; sourceTree = "<group>"; };
+		ED9A7904195A7CD70016A739 /* ZYUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYUser.m; sourceTree = "<group>"; };
+		ED9A7906195A7FAF0016A739 /* ZYUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYUserService.h; sourceTree = "<group>"; };
+		ED9A7907195A7FAF0016A739 /* ZYUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYUserService.m; sourceTree = "<group>"; };
+		ED9A7909195A805D0016A739 /* ZYServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYServiceDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +101,9 @@
 		83203DCF195A5EEF00AE3849 /* Dao */ = {
 			isa = PBXGroup;
 			children = (
+				ED9A78FF195A7A9B0016A739 /* ZYDaoDelegate.h */,
+				ED9A7900195A7C330016A739 /* ZYUserDao.h */,
+				ED9A7901195A7C330016A739 /* ZYUserDao.m */,
 			);
 			name = Dao;
 			sourceTree = "<group>";
@@ -97,6 +111,9 @@
 		83203DD0195A5EF500AE3849 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				ED9A7906195A7FAF0016A739 /* ZYUserService.h */,
+				ED9A7907195A7FAF0016A739 /* ZYUserService.m */,
+				ED9A7909195A805D0016A739 /* ZYServiceDelegate.h */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -104,6 +121,8 @@
 		83203DD1195A5EFC00AE3849 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ED9A7903195A7CD70016A739 /* ZYUser.h */,
+				ED9A7904195A7CD70016A739 /* ZYUser.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -309,7 +328,10 @@
 			files = (
 				83203DD5195A61AB00AE3849 /* HttpRequest.m in Sources */,
 				8359AF38195981F100519EF7 /* main.m in Sources */,
+				ED9A7905195A7CD70016A739 /* ZYUser.m in Sources */,
+				ED9A7902195A7C330016A739 /* ZYUserDao.m in Sources */,
 				8359AF3C195981F100519EF7 /* ZYAppDelegate.m in Sources */,
+				ED9A7908195A7FAF0016A739 /* ZYUserService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
