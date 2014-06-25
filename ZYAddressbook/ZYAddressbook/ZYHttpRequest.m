@@ -10,6 +10,14 @@
 
 @implementation ZYHttpRequest
 
+/*!
+ @method initWithRequestUrl:method:respenseDelegate:
+ @abstract 使用一个 url 连接初始化一个 httprequest 对象
+ @param requestUrl 请求的url地址
+ @param method 请求的 http 方法 POST 或 GET
+ @param respenseDelegate 回调执行的委托，类型为 ZYHttpResponseDelegate
+ @result 已实例化的 ZYHttpRequest
+ */
 -(ZYHttpRequest*)initWithRequestUrl:(NSString*)requestUrl method:(NSString*)method respenseDelegate:(id<ZYHttpResponseDelegate>)delegate
 {
     self -> httpRequestUrl =[[NSURL alloc] initWithString:(requestUrl)];
@@ -19,21 +27,42 @@
     return self;
 }
 
--(void)addParamater:(NSString*)paramaterName addParamaterValue:(NSString*)paramaterValue
+/*!
+ @method addParamaterFor:byValue:
+ @abstract 为请求添加参数
+ @param paramaterName 参数的名称
+ @param addParamaterValue 参数的值
+ */
+-(void)addParamaterFor:(NSString*)paramaterName byValue:(NSString*)paramaterValue
 {
     [self -> paramaters setObject:paramaterValue forKey:paramaterName];
 }
 
--(void)setParamater:(NSString*)paramaterName setParamaterValue:(NSString*)paramaterValue
+/*!
+ @method setParamaterFor:byValue:
+ @abstract 设置请求的参数的值
+ @param paramaterName 参数的名称
+ @param addParamaterValue 参数的值
+ */
+-(void)setParamaterFor:(NSString*)paramaterName byValue:(NSString*)paramaterValue
 {
     [self -> paramaters setObject:paramaterValue forKey:paramaterName];
 }
 
--(void)removeParamater:(NSString*)paramaterName
+/*!
+ @method removeParamaterBy:
+ @abstract 根据名称移除请求的参数
+ @param paramaterName 参数的名称
+ */
+-(void)removeParamaterBy:(NSString*)paramaterName
 {
     [self -> paramaters removeObjectForKey:paramaterName];
 }
 
+/*!
+ @method doHttpRequest
+ @abstract 开始请求
+ */
 -(void)doHttpRequest
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL: self -> httpRequestUrl];
@@ -53,11 +82,23 @@
     [NSURLConnection connectionWithRequest:request delegate:self];
 }
 
+/*!
+ @method connection:didFailWithError:
+ @abstract 请求执行发生错误
+ @param connection 请求的连接
+ @param didFailWithError 错误信息
+ */
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     [self -> httpResponseDelegate httpRequestFaild:[[NSString alloc] initWithFormat:@"error : 无法连接服务器 %@" , error.localizedDescription]];
 }
 
+/*!
+ @method connection:didReceiveResponse:
+ @abstract 请求收到回复信息
+ @param connection 请求的连接
+ @param didReceiveResponse 回复信息
+ */
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
@@ -66,6 +107,12 @@
     }
 }
 
+/*!
+ @method connection:didReceiveData:
+ @abstract 请求收到回复数据
+ @param connection 请求的连接
+ @param didReceiveData 回复数据
+ */
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     NSString *responseResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];

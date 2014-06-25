@@ -23,11 +23,11 @@
 
 -(ZYHttpRequest*)initWithRequestUrl:(NSString*)requestUrl method:(NSString*)method respenseDelegate:(id<ZYHttpResponseDelegate>)delegate;
 
--(void)addParamater:(NSString*)paramaterName addParamaterValue:(NSString*)paramaterValue;
+-(void)addParamaterFor:(NSString*)paramaterName byValue:(NSString*)paramaterValue;
 
--(void)setParamater:(NSString*)paramaterName setParamaterValue:(NSString*)paramaterValue;
+-(void)setParamaterFor:(NSString*)paramaterName byValue:(NSString*)paramaterValue;
 
--(void)removeParamater:(NSString*)paramaterName;
+-(void)removeParamaterBy:(NSString*)paramaterName;
 
 -(void)doHttpRequest;
 
