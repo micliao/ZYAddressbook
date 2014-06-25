@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83203DD5195A61AB00AE3849 /* HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83203DD4195A61AB00AE3849 /* HttpRequest.m */; };
 		8359AF2C195981F100519EF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359AF2B195981F100519EF7 /* Foundation.framework */; };
 		8359AF2E195981F100519EF7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359AF2D195981F100519EF7 /* CoreGraphics.framework */; };
 		8359AF30195981F100519EF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359AF2F195981F100519EF7 /* UIKit.framework */; };
@@ -33,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		83203DD3195A61AB00AE3849 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
+		83203DD4195A61AB00AE3849 /* HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequest.m; sourceTree = "<group>"; };
+		83203DD8195A641300AE3849 /* HttpResponseDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpResponseDelegate.h; sourceTree = "<group>"; };
 		8359AF28195981F100519EF7 /* ZYAddressbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYAddressbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8359AF2B195981F100519EF7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8359AF2D195981F100519EF7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -111,6 +115,16 @@
 			name = Extension;
 			sourceTree = "<group>";
 		};
+		83203DD6195A630100AE3849 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				83203DD3195A61AB00AE3849 /* HttpRequest.h */,
+				83203DD4195A61AB00AE3849 /* HttpRequest.m */,
+				83203DD8195A641300AE3849 /* HttpResponseDelegate.h */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		8359AF1F195981F100519EF7 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +158,7 @@
 		8359AF31195981F100519EF7 /* ZYAddressbook */ = {
 			isa = PBXGroup;
 			children = (
+				83203DD6195A630100AE3849 /* Util */,
 				83203DD2195A5F0000AE3849 /* Extension */,
 				83203DD0195A5EF500AE3849 /* Service */,
 				83203DCF195A5EEF00AE3849 /* Dao */,
@@ -292,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83203DD5195A61AB00AE3849 /* HttpRequest.m in Sources */,
 				8359AF38195981F100519EF7 /* main.m in Sources */,
 				8359AF3C195981F100519EF7 /* ZYAppDelegate.m in Sources */,
 			);
