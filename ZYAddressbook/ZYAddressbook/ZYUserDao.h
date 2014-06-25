@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "ZYDaoDelegate.h"
 #import "ZYUser.h"
+#import "ZYHttpRequest.h"
+#import "ZYHttpResponseDelegate.h"
 
 @interface ZYUserDao : NSObject<ZYDaoDelegate>
+
+-(void)verifyUserBy:(NSString*)account password:(NSString*)password httpResponseDelagete:(id<ZYHttpResponseDelegate>)delegate;
 
 @end

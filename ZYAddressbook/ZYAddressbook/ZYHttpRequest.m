@@ -20,10 +20,12 @@
  */
 -(ZYHttpRequest*)initWithRequestUrl:(NSString*)requestUrl method:(NSString*)method respenseDelegate:(id<ZYHttpResponseDelegate>)delegate
 {
-    self -> httpRequestUrl =[[NSURL alloc] initWithString:(requestUrl)];
+    self -> httpRequestUrl = requestUrl;
     self -> httpMethod = method;
     self -> httpResponseDelegate = delegate;
-    self -> paramaterFormat = @"%@:%@";
+    self -> paramaterFormat = @"%@=%@";
+    self -> paramaters = [[NSMutableDictionary alloc] init];
+    self -> isRequestSuccess = YES;
     return self;
 }
 
@@ -65,7 +67,6 @@
  */
 -(void)doHttpRequest
 {
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL: self -> httpRequestUrl];
     NSString *paramatersString = @"";
     if (self -> paramaters.count > 0) {
         int i = 0;
@@ -74,11 +75,17 @@
             i++;
         }
     }
-    NSData *requestData = [paramatersString dataUsingEncoding:NSUTF8StringEncoding];
-    
-    [request addValue:[[NSString alloc] initWithFormat:@"%d",requestData.length ] forHTTPHeaderField:@"Content-Length"];
+    if ([self -> httpMethod isEqual:@"GET"]) {
+        self -> httpRequestUrl = [[self -> httpRequestUrl stringByAppendingString:@"?"] stringByAppendingString:paramatersString];
+    }
+    NSURL *url = [[NSURL alloc] initWithString:(self -> httpRequestUrl)];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL: url];
+    if ([self -> httpMethod isEqual:@"POST"]) {
+        NSData *requestData = [paramatersString dataUsingEncoding:NSUTF8StringEncoding];
+        [request addValue:[[NSString alloc] initWithFormat:@"%d",requestData.length ] forHTTPHeaderField:@"Content-Length"];
+        request.HTTPBody = requestData;
+    }
     request.HTTPMethod = self -> httpMethod;
-    request.HTTPBody = requestData;
     [NSURLConnection connectionWithRequest:request delegate:self];
 }
 
@@ -90,7 +97,10 @@
  */
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    [self -> httpResponseDelegate httpRequestFaild:[[NSString alloc] initWithFormat:@"error : 无法连接服务器 %@" , error.localizedDescription]];
+    if ([self -> httpResponseDelegate respondsToSelector:@selector(httpRequestFaild:)]) {
+        [self -> httpResponseDelegate httpRequestFaild:[[NSString alloc] initWithFormat:@"error : 无法连接服务器 %@" , error.localizedDescription]];
+    }
+    self -> isRequestSuccess = NO;
 }
 
 /*!
@@ -102,9 +112,10 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
-    if (httpResponse.statusCode != 200) {
+    if (httpResponse.statusCode != 200 && [self -> httpResponseDelegate respondsToSelector:@selector(httpRequestFaild:)]) {
         [self -> httpResponseDelegate httpRequestFaild:[[NSString alloc] initWithFormat:@"error : 无法连接服务器 %d" , httpResponse.statusCode]];
     }
+    self -> isRequestSuccess = httpResponse.statusCode == 200;
 }
 
 /*!
@@ -115,13 +126,15 @@
  */
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    NSString *responseResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
-    if (responseResult.length == 0) {
-        [self -> httpResponseDelegate httpRequestFaild:@"wrong : 服务器返回结果解析错误"];
-    }
-    else {
-        [self -> httpResponseDelegate httpRequestSuccess:responseResult];
+    if (self -> isRequestSuccess) {
+        NSString *responseResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        if (responseResult.length == 0 && [self -> httpResponseDelegate respondsToSelector:@selector(httpRequestFaild:)]) {
+            [self -> httpResponseDelegate httpRequestFaild:@"wrong : 服务器返回结果解析错误"];
+        }
+        else if ([self -> httpResponseDelegate respondsToSelector:@selector(httpRequestSuccess:)]){
+            [self -> httpResponseDelegate httpRequestSuccess:responseResult];
+        }
     }
 }
 

@@ -26,4 +26,23 @@
     return  nil;
 }
 
+/*!
+    @method verifyUserBy:password:httpResponseDelagete:
+    @abstract 验证用户登录信息
+    @param account 账号或email
+    @param password 密码
+    @param delegate http请求回调
+ */
+-(void)verifyUserBy:(NSString*)account password:(NSString*)password httpResponseDelagete:(id<ZYHttpResponseDelegate>)delegate {
+    if (account.length == 0 || password.length == 0) {
+        if ([delegate respondsToSelector:@selector(httpRequestSuccess:)]) {
+            [delegate httpRequestFaild:@"账号密码不能为空"];
+        }
+    }
+    else {
+        ZYUserDao* userDao = [[ZYUserDao alloc] init];
+        [userDao verifyUserBy:account password:password httpResponseDelagete:delegate];
+    }
+}
+
 @end

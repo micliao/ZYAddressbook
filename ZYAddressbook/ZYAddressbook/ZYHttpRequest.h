@@ -16,9 +16,10 @@
 {
     id<ZYHttpResponseDelegate> httpResponseDelegate;
     NSString *httpMethod;
-    NSURL *httpRequestUrl;
+    NSString *httpRequestUrl;
     NSMutableDictionary *paramaters;
     NSString *paramaterFormat;
+    bool isRequestSuccess;
 }
 
 -(ZYHttpRequest*)initWithRequestUrl:(NSString*)requestUrl method:(NSString*)method respenseDelegate:(id<ZYHttpResponseDelegate>)delegate;

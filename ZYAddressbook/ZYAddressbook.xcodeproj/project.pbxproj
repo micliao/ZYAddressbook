@@ -20,6 +20,7 @@
 		8359AF47195981F100519EF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8359AF2F195981F100519EF7 /* UIKit.framework */; };
 		8359AF4F195981F100519EF7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8359AF4D195981F100519EF7 /* InfoPlist.strings */; };
 		8359AF51195981F100519EF7 /* ZYAddressbookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8359AF50195981F100519EF7 /* ZYAddressbookTests.m */; };
+		83C982BA195AA9F9005E9905 /* ZYSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C982B9195AA9F9005E9905 /* ZYSignInViewController.m */; };
 		ED9A78FD195983CF0016A739 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED9A78FC195983CF0016A739 /* Main.storyboard */; };
 		ED9A7902195A7C330016A739 /* ZYUserDao.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7901195A7C330016A739 /* ZYUserDao.m */; };
 		ED9A7905195A7CD70016A739 /* ZYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7904195A7CD70016A739 /* ZYUser.m */; };
@@ -56,6 +57,8 @@
 		8359AF4C195981F100519EF7 /* ZYAddressbookTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZYAddressbookTests-Info.plist"; sourceTree = "<group>"; };
 		8359AF4E195981F100519EF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8359AF50195981F100519EF7 /* ZYAddressbookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYAddressbookTests.m; sourceTree = "<group>"; };
+		83C982B8195AA9F9005E9905 /* ZYSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSignInViewController.h; sourceTree = "<group>"; };
+		83C982B9195AA9F9005E9905 /* ZYSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSignInViewController.m; sourceTree = "<group>"; };
 		ED9A78FC195983CF0016A739 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		ED9A78FF195A7A9B0016A739 /* ZYDaoDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYDaoDelegate.h; sourceTree = "<group>"; };
 		ED9A7900195A7C330016A739 /* ZYUserDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYUserDao.h; sourceTree = "<group>"; };
@@ -225,6 +228,8 @@
 		ED9A78FE19598B680016A739 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				83C982B8195AA9F9005E9905 /* ZYSignInViewController.h */,
+				83C982B9195AA9F9005E9905 /* ZYSignInViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				8359AF38195981F100519EF7 /* main.m in Sources */,
 				ED9A7905195A7CD70016A739 /* ZYUser.m in Sources */,
 				ED9A7902195A7C330016A739 /* ZYUserDao.m in Sources */,
+				83C982BA195AA9F9005E9905 /* ZYSignInViewController.m in Sources */,
 				8359AF3C195981F100519EF7 /* ZYAppDelegate.m in Sources */,
 				ED9A7908195A7FAF0016A739 /* ZYUserService.m in Sources */,
 			);
