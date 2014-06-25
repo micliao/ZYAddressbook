@@ -10,4 +10,8 @@
 
 @implementation ZYUser
 
++(ZYUser*)zyuser{
+    return [[self alloc] init];
+}
+
 @end
