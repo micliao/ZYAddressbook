@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="61" y="94"/>
         </scene>
-        <!--Sign In View Controller - 智云通讯录-->
+        <!--Sign In View Controller - tttt-->
         <scene sceneID="f7H-bM-MH2">
             <objects>
                 <viewController id="fgb-Jp-dGJ" customClass="ZYSignInViewController" sceneMemberID="viewController">
@@ -39,22 +39,28 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="账号 或 Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Znh-hO-vY1">
                                 <rect key="frame" x="20" y="240" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="fgb-Jp-dGJ" id="2YC-7R-aqa"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vb7-og-ttG">
-                                <rect key="frame" x="20" y="286" width="280" height="30"/>
+                                <rect key="frame" x="20" y="285" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="fgb-Jp-dGJ" id="7Wh-rh-dR6"/>
+                                </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bpH-4t-LLv">
-                                <rect key="frame" x="100" y="97" width="120" height="120"/>
+                                <rect key="frame" x="100" y="100" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.17391411430000001" green="0.74439312940000002" blue="0.85668447069999998" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ms3-Ft-MbQ">
-                                <rect key="frame" x="84" y="331" width="46" height="30"/>
+                                <rect key="frame" x="84" y="330" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="登录">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,7 +70,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PO-EF-GrF">
-                                <rect key="frame" x="192" y="331" width="46" height="30"/>
+                                <rect key="frame" x="192" y="330" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="注册">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -73,8 +79,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="智云通讯录" id="DRF-hM-Ulq"/>
+                    <navigationItem key="navigationItem" title="tttt" id="DRF-hM-Ulq"/>
                     <connections>
+                        <outlet property="btnRegist" destination="4PO-EF-GrF" id="YF2-gn-7kc"/>
+                        <outlet property="btnSignIn" destination="Ms3-Ft-MbQ" id="VfF-e9-F3y"/>
                         <outlet property="imgAvatar" destination="bpH-4t-LLv" id="gWh-JF-Qfi"/>
                         <outlet property="txtAccount" destination="Znh-hO-vY1" id="8QW-Sv-W3J"/>
                         <outlet property="txtPassword" destination="Vb7-og-ttG" id="Hlu-og-lwr"/>
