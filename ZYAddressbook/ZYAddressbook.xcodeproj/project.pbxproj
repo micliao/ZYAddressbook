@@ -25,6 +25,15 @@
 		ED9A7902195A7C330016A739 /* ZYUserDao.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7901195A7C330016A739 /* ZYUserDao.m */; };
 		ED9A7905195A7CD70016A739 /* ZYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7904195A7CD70016A739 /* ZYUser.m */; };
 		ED9A7908195A7FAF0016A739 /* ZYUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7907195A7FAF0016A739 /* ZYUserService.m */; };
+		ED9A790D195BE9710016A739 /* Frontia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9A790C195BE9710016A739 /* Frontia.framework */; };
+		ED9A790F195BE98D0016A739 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9A790E195BE98D0016A739 /* SystemConfiguration.framework */; };
+		ED9A7911195BE99D0016A739 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9A7910195BE99D0016A739 /* MessageUI.framework */; };
+		ED9A7913195BE9A30016A739 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9A7912195BE9A30016A739 /* QuartzCore.framework */; };
+		ED9A7915195BE9D70016A739 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9A7914195BE9D70016A739 /* CoreLocation.framework */; };
+		ED9A7917195BE9DD0016A739 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9A7916195BE9DD0016A739 /* CoreTelephony.framework */; };
+		ED9A7919195BE9F50016A739 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9A7918195BE9F50016A739 /* libsqlite3.dylib */; };
+		ED9A791B195BEA070016A739 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9A791A195BEA070016A739 /* libstdc++.dylib */; };
+		ED9A791D195BEA180016A739 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED9A791C195BEA180016A739 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +77,15 @@
 		ED9A7906195A7FAF0016A739 /* ZYUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYUserService.h; sourceTree = "<group>"; };
 		ED9A7907195A7FAF0016A739 /* ZYUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYUserService.m; sourceTree = "<group>"; };
 		ED9A7909195A805D0016A739 /* ZYServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYServiceDelegate.h; sourceTree = "<group>"; };
+		ED9A790C195BE9710016A739 /* Frontia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Frontia.framework; path = "../../../../Downloads/Baidu-Frontia-iOS-2/libs/Frontia.framework"; sourceTree = "<group>"; };
+		ED9A790E195BE98D0016A739 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		ED9A7910195BE99D0016A739 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		ED9A7912195BE9A30016A739 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		ED9A7914195BE9D70016A739 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		ED9A7916195BE9DD0016A739 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		ED9A7918195BE9F50016A739 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		ED9A791A195BEA070016A739 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		ED9A791C195BEA180016A739 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +93,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED9A791D195BEA180016A739 /* libz.dylib in Frameworks */,
+				ED9A791B195BEA070016A739 /* libstdc++.dylib in Frameworks */,
+				ED9A7919195BE9F50016A739 /* libsqlite3.dylib in Frameworks */,
+				ED9A7917195BE9DD0016A739 /* CoreTelephony.framework in Frameworks */,
+				ED9A7915195BE9D70016A739 /* CoreLocation.framework in Frameworks */,
 				8359AF2E195981F100519EF7 /* CoreGraphics.framework in Frameworks */,
 				8359AF30195981F100519EF7 /* UIKit.framework in Frameworks */,
+				ED9A7913195BE9A30016A739 /* QuartzCore.framework in Frameworks */,
+				ED9A7911195BE99D0016A739 /* MessageUI.framework in Frameworks */,
+				ED9A790F195BE98D0016A739 /* SystemConfiguration.framework in Frameworks */,
+				ED9A790D195BE9710016A739 /* Frontia.framework in Frameworks */,
 				8359AF2C195981F100519EF7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +196,15 @@
 		8359AF2A195981F100519EF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED9A791C195BEA180016A739 /* libz.dylib */,
+				ED9A791A195BEA070016A739 /* libstdc++.dylib */,
+				ED9A7918195BE9F50016A739 /* libsqlite3.dylib */,
+				ED9A7916195BE9DD0016A739 /* CoreTelephony.framework */,
+				ED9A7914195BE9D70016A739 /* CoreLocation.framework */,
+				ED9A7912195BE9A30016A739 /* QuartzCore.framework */,
+				ED9A7910195BE99D0016A739 /* MessageUI.framework */,
+				ED9A790E195BE98D0016A739 /* SystemConfiguration.framework */,
+				ED9A790C195BE9710016A739 /* Frontia.framework */,
 				8359AF2B195981F100519EF7 /* Foundation.framework */,
 				8359AF2D195981F100519EF7 /* CoreGraphics.framework */,
 				8359AF2F195981F100519EF7 /* UIKit.framework */,
@@ -250,8 +286,8 @@
 			buildConfigurationList = 8359AF54195981F100519EF7 /* Build configuration list for PBXNativeTarget "ZYAddressbook" */;
 			buildPhases = (
 				8359AF24195981F100519EF7 /* Sources */,
-				8359AF25195981F100519EF7 /* Frameworks */,
 				8359AF26195981F100519EF7 /* Resources */,
+				8359AF25195981F100519EF7 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -462,9 +498,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/element/Downloads/Baidu-Frontia-iOS-2/libs",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZYAddressbook/ZYAddressbook-Prefix.pch";
 				INFOPLIST_FILE = "ZYAddressbook/ZYAddressbook-Info.plist";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -475,6 +516,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/element/Downloads/Baidu-Frontia-iOS-2/libs",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZYAddressbook/ZYAddressbook-Prefix.pch";
 				INFOPLIST_FILE = "ZYAddressbook/ZYAddressbook-Info.plist";
