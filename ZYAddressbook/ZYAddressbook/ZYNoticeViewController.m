@@ -54,10 +54,10 @@
 -(void)show:(NSString*)text {
     self->noticeText = text;
     [self beforeShow];
-    [UIView beginAnimations:@"animation" context:nil];
+    [UIView beginAnimations:@"showanimation" context:nil];
     [UIView setAnimationDelegate:self];
-    [UIView setAnimationWillStartSelector:@selector(beforeShow)];
-    //[UIView setAnimationDidStopSelector:@selector(afterShowAnimations)];
+    //[UIView setAnimationWillStartSelector:@selector(beforeShow)];
+    [UIView setAnimationDidStopSelector:@selector(afterShow)];
     [UIView setAnimationDuration:0.2];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
@@ -75,6 +75,7 @@
         [self->lbNoticeText setFont:[UIFont fontWithName:@"Helvetica Bold" size:16.0]];
         [self->lbNoticeText setBackgroundColor:[UIColor clearColor]];
         [self->lbNoticeText setTextColor:[UIColor whiteColor]];
+        [self->lbNoticeText setNumberOfLines:0];
         [self.view addSubview:self->lbNoticeText];
     }
     
@@ -96,7 +97,24 @@
     }
 }
 
+-(void)afterShow {
+    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(hide) userInfo:nil repeats:NO];
+}
+
 -(void)hide {
+    [self->lbNoticeText setHidden:YES];
+    [UIView beginAnimations:@"hideanimation" context:nil];
+    [UIView setAnimationDelegate:self];
+    //[UIView setAnimationWillStartSelector:@selector(beforeShow)];
+    [UIView setAnimationDidStopSelector:@selector(afterHide)];
+    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
+    [self.view setFrame:CGRectMake(self->noticeSize.origin.x + self->noticeSize.size.width/2 , self->noticeSize.origin.y +self->noticeSize.size.height/2 , 1 , 1)];
+    [UIView commitAnimations];
+}
+
+-(void)afterHide {
     [self.view setHidden:YES];
 }
 
