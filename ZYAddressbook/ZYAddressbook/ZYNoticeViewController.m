@@ -31,7 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.view.layer.masksToBounds = YES;
     self.view.layer.cornerRadius = 8.0;
 }
@@ -56,14 +55,12 @@
     [self beforeShow];
     [UIView beginAnimations:@"showanimation" context:nil];
     [UIView setAnimationDelegate:self];
-    //[UIView setAnimationWillStartSelector:@selector(beforeShow)];
     [UIView setAnimationDidStopSelector:@selector(afterShow)];
     [UIView setAnimationDuration:0.2];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
     [self.view setHidden:NO];
     [self.view setFrame:self->noticeSize];
-    
     [self->lbNoticeText setHidden:NO];
     [UIView commitAnimations];
     
@@ -105,12 +102,12 @@
     [self->lbNoticeText setHidden:YES];
     [UIView beginAnimations:@"hideanimation" context:nil];
     [UIView setAnimationDelegate:self];
-    //[UIView setAnimationWillStartSelector:@selector(beforeShow)];
     [UIView setAnimationDidStopSelector:@selector(afterHide)];
     [UIView setAnimationDuration:0.2];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
-    [self.view setFrame:CGRectMake(self->noticeSize.origin.x + self->noticeSize.size.width/2 , self->noticeSize.origin.y +self->noticeSize.size.height/2 , 1 , 1)];
+    self.view.layer.cornerRadius = 4;
+    [self.view setFrame:CGRectMake(self->noticeSize.origin.x + self->noticeSize.size.width/2 , self->noticeSize.origin.y +self->noticeSize.size.height/2 , 0.1 , 0.1)];
     [UIView commitAnimations];
 }
 
