@@ -147,15 +147,11 @@
 		83203DD6195A630100AE3849 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				83EC5B48195D10D100A1610D /* ZYNotice */,
+				83EC5B47195D10B600A1610D /* ZYLoading */,
 				83203DD3195A61AB00AE3849 /* ZYHttpRequest.h */,
 				83203DD4195A61AB00AE3849 /* ZYHttpRequest.m */,
 				83203DD8195A641300AE3849 /* ZYHttpResponseDelegate.h */,
-				83530E46195BEB3C004966A7 /* ZYLoadingViewController.h */,
-				83530E47195BEB3C004966A7 /* ZYLoadingViewController.m */,
-				83530E48195BEB3C004966A7 /* ZYLoadingView.xib */,
-				83A02D81195BFF1B0098FD58 /* ZYNoticeViewController.h */,
-				83A02D82195BFF1B0098FD58 /* ZYNoticeViewController.m */,
-				83A02D83195BFF1B0098FD58 /* ZYNoticeView.xib */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -236,6 +232,26 @@
 				8359AF4D195981F100519EF7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83EC5B47195D10B600A1610D /* ZYLoading */ = {
+			isa = PBXGroup;
+			children = (
+				83530E46195BEB3C004966A7 /* ZYLoadingViewController.h */,
+				83530E47195BEB3C004966A7 /* ZYLoadingViewController.m */,
+				83530E48195BEB3C004966A7 /* ZYLoadingView.xib */,
+			);
+			name = ZYLoading;
+			sourceTree = "<group>";
+		};
+		83EC5B48195D10D100A1610D /* ZYNotice */ = {
+			isa = PBXGroup;
+			children = (
+				83A02D81195BFF1B0098FD58 /* ZYNoticeViewController.h */,
+				83A02D82195BFF1B0098FD58 /* ZYNoticeViewController.m */,
+				83A02D83195BFF1B0098FD58 /* ZYNoticeView.xib */,
+			);
+			name = ZYNotice;
 			sourceTree = "<group>";
 		};
 		ED9A78FE19598B680016A739 /* Controller */ = {
