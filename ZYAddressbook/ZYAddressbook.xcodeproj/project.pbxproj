@@ -29,6 +29,8 @@
 		ED9A7902195A7C330016A739 /* ZYUserDao.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7901195A7C330016A739 /* ZYUserDao.m */; };
 		ED9A7905195A7CD70016A739 /* ZYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7904195A7CD70016A739 /* ZYUser.m */; };
 		ED9A7908195A7FAF0016A739 /* ZYUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7907195A7FAF0016A739 /* ZYUserService.m */; };
+		EDFC905C195D433800DC902A /* ZYMenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC905B195D433800DC902A /* ZYMenuViewCell.m */; };
+		EDFC905E195D437A00DC902A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFC905D195D437A00DC902A /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,9 @@
 		ED9A7906195A7FAF0016A739 /* ZYUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYUserService.h; sourceTree = "<group>"; };
 		ED9A7907195A7FAF0016A739 /* ZYUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYUserService.m; sourceTree = "<group>"; };
 		ED9A7909195A805D0016A739 /* ZYServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYServiceDelegate.h; sourceTree = "<group>"; };
+		EDFC905A195D433800DC902A /* ZYMenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYMenuViewCell.h; sourceTree = "<group>"; };
+		EDFC905B195D433800DC902A /* ZYMenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYMenuViewCell.m; sourceTree = "<group>"; };
+		EDFC905D195D437A00DC902A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDFC905E195D437A00DC902A /* QuartzCore.framework in Frameworks */,
 				8359AF30195981F100519EF7 /* UIKit.framework in Frameworks */,
 				8359AF2C195981F100519EF7 /* Foundation.framework in Frameworks */,
 			);
@@ -181,6 +187,7 @@
 		8359AF2A195981F100519EF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EDFC905D195D437A00DC902A /* QuartzCore.framework */,
 				8359AF2B195981F100519EF7 /* Foundation.framework */,
 				8359AF2F195981F100519EF7 /* UIKit.framework */,
 				8359AF44195981F100519EF7 /* XCTest.framework */,
@@ -264,6 +271,8 @@
 				83C982B9195AA9F9005E9905 /* ZYSignInViewController.m */,
 				ED828BEF195D11290010C301 /* ZYMenuViewController.h */,
 				ED828BF0195D11290010C301 /* ZYMenuViewController.m */,
+				EDFC905A195D433800DC902A /* ZYMenuViewCell.h */,
+				EDFC905B195D433800DC902A /* ZYMenuViewCell.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -376,6 +385,7 @@
 			files = (
 				83203DD5195A61AB00AE3849 /* ZYHttpRequest.m in Sources */,
 				8359AF38195981F100519EF7 /* main.m in Sources */,
+				EDFC905C195D433800DC902A /* ZYMenuViewCell.m in Sources */,
 				83A02D84195BFF1B0098FD58 /* ZYNoticeViewController.m in Sources */,
 				ED9A7905195A7CD70016A739 /* ZYUser.m in Sources */,
 				ED828BF1195D11290010C301 /* ZYMenuViewController.m in Sources */,
@@ -457,7 +467,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -489,7 +499,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

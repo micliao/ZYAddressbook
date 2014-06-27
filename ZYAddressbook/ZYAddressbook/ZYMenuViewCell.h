@@ -1,5 +1,5 @@
 //
-//  ZYMenuViewController.h
+//  ZYMenuViewCell.h
 //  ZYAddressbook
 //
 //  Created by elemeNT on 14-6-26.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZYMenuViewController : UICollectionViewController
-
-@property NSArray *menus;
+@interface ZYMenuViewCell : UICollectionViewCell
 
 @end
