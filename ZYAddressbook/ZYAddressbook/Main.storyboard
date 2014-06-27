@@ -80,7 +80,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="menuCollectionCell" id="4bu-6e-QwR">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalCompressionResistancePriority="646" reuseIdentifier="menuCollectionCell" id="4bu-6e-QwR" customClass="ZYMenuViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -88,11 +88,12 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" red="1" green="0.3715746412" blue="0.2754782663" alpha="1" colorSpace="calibratedRGB"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="Tga-Er-jYt" id="j2m-B0-grW"/>
-                            <outlet property="delegate" destination="Tga-Er-jYt" id="qn6-cj-WrQ"/>
+                            <outlet property="dataSource" destination="Tga-Er-jYt" id="pel-Q0-Fcx"/>
+                            <outlet property="delegate" destination="Tga-Er-jYt" id="cgZ-20-Len"/>
                         </connections>
                     </collectionView>
                 </collectionViewController>
