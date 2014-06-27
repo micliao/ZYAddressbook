@@ -10,9 +10,8 @@
 
 @interface ZYNoticeViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *lbNotice;
 -(id)initWithParentView:(UIView*)view;
 -(void)show:(NSString*)text;
--(void)hide;
-
+-(void)show:(NSString*)text showTime:(int)showTime;
+-(void)hideNow;
 @end

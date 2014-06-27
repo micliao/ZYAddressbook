@@ -14,6 +14,7 @@
     UILabel *lbNoticeText;
     NSString *noticeText;
     CGRect noticeSize;
+    NSTimer *closeTimer;
 }
 @end
 
@@ -46,24 +47,29 @@
     if (self) {
         self->parentView = view;
         [self->parentView addSubview:self.view];
+        self->noticeSize = CGRectMake(0, 0, 0, 0);
     }
     return self;
 }
 
 -(void)show:(NSString*)text {
+    [self show:text showTime:3];
+}
+
+-(void)show:(NSString*)text showTime:(int)showTime {
+    if (self->closeTimer != nil) {
+        [self->closeTimer invalidate];
+        self->closeTimer = nil;
+    }
     self->noticeText = text;
     [self beforeShow];
-    [UIView beginAnimations:@"showanimation" context:nil];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(afterShow)];
-    [UIView setAnimationDuration:0.2];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
-    [self.view setHidden:NO];
-    [self.view setFrame:self->noticeSize];
-    [self->lbNoticeText setHidden:NO];
-    [UIView commitAnimations];
-    
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        [self.view setHidden:NO];
+        [self.view setFrame:self->noticeSize];
+        [self->lbNoticeText setHidden:NO];
+    } completion:^(BOOL finished) {
+        self->closeTimer = [NSTimer scheduledTimerWithTimeInterval:showTime target:self selector:@selector(hide) userInfo:nil repeats:NO];
+    }];
 }
 
 -(void)beforeShow {
@@ -87,31 +93,26 @@
         CGFloat x = self->parentView.center.x - width/2;
         CGFloat y = [UIScreen mainScreen].applicationFrame.size.height - 20 - height;
         self.view.frame = CGRectMake(x + width/2 , y +height/2 , 1 , 1);
-        
-        [self->lbNoticeText setFrame:CGRectMake(5, 5, size.width, size.height)];
         self->noticeSize = CGRectMake(x,y,width, height);
+        [self->lbNoticeText setFrame:CGRectMake(5, 5, size.width, size.height)];
         self->lbNoticeText.center = CGPointMake(width/2, height/2);
     }
 }
 
--(void)afterShow {
-    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(hide) userInfo:nil repeats:NO];
-}
-
 -(void)hide {
+    self->closeTimer = nil;
     [self->lbNoticeText setHidden:YES];
-    [UIView beginAnimations:@"hideanimation" context:nil];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(afterHide)];
-    [UIView setAnimationDuration:0.2];
-    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
-    self.view.layer.cornerRadius = 4;
-    [self.view setFrame:CGRectMake(self->noticeSize.origin.x + self->noticeSize.size.width/2 , self->noticeSize.origin.y +self->noticeSize.size.height/2 , 0.1 , 0.1)];
-    [UIView commitAnimations];
+    [UIView animateWithDuration:0.2 animations:^{
+        self.view.layer.cornerRadius = 4;
+        [self.view setFrame:CGRectMake(self->noticeSize.origin.x + self->noticeSize.size.width/2 , self->noticeSize.origin.y +self->noticeSize.size.height/2 , 0.1 , 0.1)];
+    } completion:^(BOOL finished) {
+        [self.view setHidden:YES];
+    }];
 }
 
--(void)afterHide {
+-(void)hideNow {
+    self->closeTimer = nil;
+    [self->lbNoticeText setHidden:YES];
     [self.view setHidden:YES];
 }
 

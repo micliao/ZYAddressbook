@@ -24,9 +24,6 @@
     [super viewDidLoad];
     
     self -> loadingViewController = [[ZYLoadingViewController alloc] initWithParentView:self.view];
-    self.imgAvatar.layer.masksToBounds = YES;
-    [self.imgAvatar.layer setCornerRadius:60];
-    [self.imgAvatar setTransform: CGAffineTransformMakeScale(1.0f, 1.0f)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,26 +34,21 @@
 
 - (IBAction)btnSignin_TouchDown:(UIButton *)sender {
     [self.view endEditing:YES];
-    //if (self.imgAvatar.frame.size.width == 30) {
-        [UIView beginAnimations:@"animation" context:nil];
-        [UIView setAnimationDelegate:self];
-        [UIView setAnimationDidStopSelector:@selector(signIn)];
-        [UIView setAnimationDuration:0.2];
-        [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-        [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
-        //[self.imgAvatar setFrame:CGRectMake(100, 100, 120, 120)];
-        //[self.imgAvatar.layer setCornerRadius:60];
-        self.imgAvatar.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
-        [self.imgAvatar setCenter:CGPointMake(160, 160)];
-        [self.txtAccount setFrame:CGRectMake(self.txtAccount.frame.origin.x, self.txtAccount.frame.origin.y + 105, self.txtAccount.frame.size.width, self.txtAccount.frame.size.height)];
-        [self.txtPassword setFrame:CGRectMake(self.txtPassword.frame.origin.x, self.txtPassword.frame.origin.y + 105, self.txtPassword.frame.size.width, self.txtPassword.frame.size.height)];
-        [self.btnSignIn setFrame:CGRectMake(self.btnSignIn.frame.origin.x, self.btnSignIn.frame.origin.y + 105, self.btnSignIn.frame.size.width, self.btnSignIn.frame.size.height)];
-        [self.btnRegist setFrame:CGRectMake(self.btnRegist.frame.origin.x, self.btnRegist.frame.origin.y + 105, self.btnRegist.frame.size.width, self.btnRegist.frame.size.height)];
-        [UIView commitAnimations];
-//    }
-//    else {
-//        [self signIn];
-//    }
+    if (self.imgAvatar.frame.size.width == 30) {
+        [UIView animateWithDuration:0.2 animations:^{
+            [self.imgAvatar setFrame:CGRectMake(100, 100, 120, 120)];
+            for (UIView* v in self.view.subviews) {
+                if ([v isMemberOfClass:[UITextField class]] || [v isMemberOfClass:[UIButton class]] ) {
+                    [v setFrame:CGRectMake(v.frame.origin.x, v.frame.origin.y + 105, v.frame.size.width, v.frame.size.height)];
+                }
+            }
+        } completion:^(BOOL finished) {
+            [self signIn];
+        }];
+    }
+    else {
+        [self signIn];
+    }
 }
 
 -(void)signIn {
@@ -81,9 +73,14 @@
  */
 -(void)httpRequestFaild:(NSString *)errorMsg {
     [self -> loadingViewController hide];
-    ZYNoticeViewController *notice = [[ZYNoticeViewController alloc]initWithParentView:self.view];
-    [notice show:errorMsg];
-    NSLog(@"error %@",errorMsg);
+    for (UIView* v in self.view.subviews) {
+            UIResponder *nextResponder = [v nextResponder];
+            if ([nextResponder isMemberOfClass:[ZYNoticeViewController class]]) {
+                [((ZYNoticeViewController *)nextResponder) hideNow];
+            }
+    }
+    ZYNoticeViewController *noticeController = [[ZYNoticeViewController alloc]initWithParentView:self.view];
+    [noticeController show: [[NSString alloc]initWithFormat:@"error %@ %@",errorMsg,[NSDate date]]];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
@@ -92,32 +89,13 @@
     }
     
     [UIView animateWithDuration:0.2 animations:^{
-        [self.imgAvatar setCenter:CGPointMake(160, 100)];
-        
-        [self.txtAccount setFrame:CGRectMake(self.txtAccount.frame.origin.x, self.txtAccount.frame.origin.y - 105, self.txtAccount.frame.size.width, self.txtAccount.frame.size.height)];
-        [self.txtPassword setFrame:CGRectMake(self.txtPassword.frame.origin.x, self.txtPassword.frame.origin.y - 105, self.txtPassword.frame.size.width, self.txtPassword.frame.size.height)];
-        [self.btnSignIn setFrame:CGRectMake(self.btnSignIn.frame.origin.x, self.btnSignIn.frame.origin.y - 105, self.btnSignIn.frame.size.width, self.btnSignIn.frame.size.height)];
-        [self.btnRegist setFrame:CGRectMake(self.btnRegist.frame.origin.x, self.btnRegist.frame.origin.y - 105, self.btnRegist.frame.size.width, self.btnRegist.frame.size.height)];
-    } completion:^(BOOL finished){
-        [UIView animateWithDuration:0.1 animations:^{
-            [self.imgAvatar setTransform:CGAffineTransformMakeScale(0.25, 0.25)];
-        }];
+        [self.imgAvatar setFrame:CGRectMake(145, 85, 30, 30)];
+        for (UIView* v in self.view.subviews) {
+            if ([v isMemberOfClass:[UITextField class]] || [v isMemberOfClass:[UIButton class]] ) {
+                [v setFrame:CGRectMake(v.frame.origin.x, v.frame.origin.y - 105, v.frame.size.width, v.frame.size.height)];
+            }
+        }
     }];
-    
-    
-    
-    //[UIView beginAnimations:@"animation" context:nil];
-    //[UIView setAnimationDelegate:self];
-    //[UIView setAnimationWillStartSelector:@selector(beginShowAnimations)];
-    //[UIView setAnimationDidStopSelector:@selector(afterShowAnimations)];
-    //[UIView setAnimationDuration:0.2];
-    //[UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    //[UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.view cache:YES];
-    //[self.imgAvatar setFrame:CGRectMake(145, 85, 30, 30)];
-    //[self.imgAvatar.layer setCornerRadius:15];
-    
-    
-    //[UIView commitAnimations];
     return YES;
 }
 
