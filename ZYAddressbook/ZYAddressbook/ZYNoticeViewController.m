@@ -111,7 +111,10 @@
 }
 
 -(void)hideNow {
-    self->closeTimer = nil;
+    if (self->closeTimer != nil) {
+        [self->closeTimer invalidate];
+        self->closeTimer = nil;
+    }
     [self->lbNoticeText setHidden:YES];
     [self.view setHidden:YES];
 }

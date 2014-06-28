@@ -34,21 +34,23 @@
 
 - (IBAction)btnSignin_TouchDown:(UIButton *)sender {
     [self.view endEditing:YES];
-    if (self.imgAvatar.frame.size.width == 30) {
-        [UIView animateWithDuration:0.2 animations:^{
-            [self.imgAvatar setFrame:CGRectMake(100, 100, 120, 120)];
-            for (UIView* v in self.view.subviews) {
-                if ([v isMemberOfClass:[UITextField class]] || [v isMemberOfClass:[UIButton class]] ) {
-                    [v setFrame:CGRectMake(v.frame.origin.x, v.frame.origin.y + 105, v.frame.size.width, v.frame.size.height)];
-                }
-            }
-        } completion:^(BOOL finished) {
-            [self signIn];
-        }];
-    }
-    else {
-        [self signIn];
-    }
+//    if (self.imgAvatar.frame.size.width == 30) {
+//        [UIView animateWithDuration:0.2 animations:^{
+//            [self.imgAvatar setFrame:CGRectMake(100, 100, 120, 120)];
+//            for (UIView* v in self.view.subviews) {
+//                if ([v isMemberOfClass:[UITextField class]] || [v isMemberOfClass:[UIButton class]] ) {
+//                    [v setFrame:CGRectMake(v.frame.origin.x, v.frame.origin.y + 105, v.frame.size.width, v.frame.size.height)];
+//                }
+//            }
+//        } completion:^(BOOL finished) {
+//            [self signIn];
+//        }];
+//    }
+//    else {
+//        [self signIn];
+//    }
+    ZYContactsViewController *contactsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ZYContactsViewController"];
+    [self presentViewController:contactsViewController animated:YES completion:nil];
 }
 
 -(void)signIn {

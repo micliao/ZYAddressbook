@@ -11,6 +11,7 @@
 #import "ZYUserService.h"
 #import "ZYLoadingViewController.h"
 #import "ZYNoticeViewController.h"
+#import "ZYContactsViewController.h"
 
 @interface ZYSignInViewController : UIViewController <ZYHttpResponseDelegate , UITextFieldDelegate>
 {
