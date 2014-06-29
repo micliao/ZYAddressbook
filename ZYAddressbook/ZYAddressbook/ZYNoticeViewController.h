@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+/*!
+ @interface ZYNoticeViewController
+ @abstract 自定义提示文本定义
+ */
 @interface ZYNoticeViewController : UIViewController
 
 -(id)initWithParentView:(UIView*)view;

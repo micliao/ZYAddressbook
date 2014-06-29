@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZYNSMutableDictionary.h"
 
 @interface ZYContactsViewController : UIViewController <UISearchDisplayDelegate,UITableViewDataSource,UITableViewDelegate>
 {
-    NSArray *allContacts;
-    NSArray *searchedContacts;
+    NSMutableArray *searchedContacts;
+    ZYNSMutableDictionary *allContacts;
 }
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;

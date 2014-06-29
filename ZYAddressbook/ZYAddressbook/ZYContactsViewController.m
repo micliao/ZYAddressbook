@@ -22,7 +22,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self->allContacts = [[NSArray alloc] initWithObjects:@"Adeb",@"Adam",@"Acc",@"Arm",@"Apu",@"Barana",@"Bob",@"Bom",@"Bobo",@"Boy",@"Code",@"Ca",@"Coca",@"Can",@"Cab",@"Deb",@"Derek",@"Dam",@"Dud",@"Dom", nil];
+
+    self->allContacts = [[ZYNSMutableDictionary alloc]initWithIndexedObjects:[[NSArray alloc] initWithObjects:[[NSArray alloc]initWithObjects:@"Adeb",@"Adam",@"Acc",@"Arm",@"Apu",nil],[[NSArray alloc]initWithObjects:@"Barana",@"Bob",@"Bom",@"Bobo",@"Boy",nil],[[NSArray alloc]initWithObjects:@"Code",@"Ca",@"Coca",@"Can",@"Cab",nil],[[NSArray alloc]initWithObjects:@"Derek",@"Dam",@"Dud",@"Dom",@"Deb",nil], nil ]  forKeys:[[NSArray alloc]initWithObjects:@"A",@"B",@"C",@"D", nil]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,45 +35,50 @@
 //datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return self->searchedContacts == nil ? 0 : [self->searchedContacts count];
+    }
+    return [self->allContacts[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
-    [cell.textLabel setText:self->allContacts[indexPath.section*5 + indexPath.row]];
-    [cell.detailTextLabel setText:[@"i'm " stringByAppendingString:cell.textLabel.text]];
+    NSString *name;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        name = self->searchedContacts[indexPath.row];
+    }
+    else {
+        name = self->allContacts[indexPath.section][indexPath.row];
+    }
+    [cell.textLabel setText:name];
+    [cell.detailTextLabel setText:[@"i'm " stringByAppendingString:name]];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return self->searchedContacts == nil ? 0 : 1;
+    }
+    return [[self->allContacts realDictionary] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSString *headerTitle;
-    switch (section) {
-        case 0:
-            headerTitle = @"A";
-            break;
-        case 1:
-            headerTitle = @"B";
-            break;
-        case 2:
-            headerTitle = @"C";
-            break;
-        case 3:
-            headerTitle = @"D";
-            break;
-        default:
-            headerTitle = @"";
-            break;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return @"";
     }
-    return headerTitle;
+    return [self->allContacts keyForIndex:section];
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return [[NSArray alloc]initWithObjects:@"A",@"B",@"C",@"D", nil];
+    NSMutableArray *titleArray = [[NSMutableArray alloc] init];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return nil;
+    }
+    for (int i=0;i<[[self->allContacts realDictionary]count];i++) {
+        [titleArray addObject:[self->allContacts keyForIndex:i]];
+    }
+    return titleArray;
 }
 
 //tableview delegate
@@ -84,8 +90,20 @@
 
 //searchdisplay delegate
 
-- (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
-
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    if(self->searchedContacts == nil) {
+        self->searchedContacts = [[NSMutableArray alloc]init];
+    }
+    
+    [self->searchedContacts removeAllObjects];
+    for (NSObject *obj in [self->allContacts realDictionary]) {
+        for (NSString *name in [[self->allContacts realDictionary] objectForKey:obj]) {
+            if ([name containsString:searchString]) {
+                [self->searchedContacts addObject:name];
+            }
+        }
+    }
+    return YES;
 }
 
 @end

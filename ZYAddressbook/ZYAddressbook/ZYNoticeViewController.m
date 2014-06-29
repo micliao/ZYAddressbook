@@ -42,6 +42,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*!
+ @method initWithParentView:
+ @abstract 使用父级view初始化
+ @param view 父级view初始化
+ @result 已实例化的 ZYNoticeViewController
+ */
 -(id)initWithParentView:(UIView*)view {
     self = [super initWithNibName:@"ZYNoticeView" bundle:nil];
     if (self) {
@@ -52,10 +58,21 @@
     return self;
 }
 
+/*!
+ @method show:
+ @abstract 显示提示，在3s后消失
+ @param text 提示文本
+ */
 -(void)show:(NSString*)text {
     [self show:text showTime:3];
 }
 
+/*!
+ @method show:showTime:
+ @abstract 显示提示，在特定时间后消失
+ @param text 提示文本
+ @param showTime 显示时间
+ */
 -(void)show:(NSString*)text showTime:(int)showTime {
     if (self->closeTimer != nil) {
         [self->closeTimer invalidate];
@@ -110,6 +127,10 @@
     }];
 }
 
+/*!
+ @method hideNow:
+ @abstract 立即隐藏提示框
+ */
 -(void)hideNow {
     if (self->closeTimer != nil) {
         [self->closeTimer invalidate];

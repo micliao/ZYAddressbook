@@ -43,6 +43,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*!
+ @method initWithParentView:
+ @abstract 使用父级view初始化
+ @param view 父级view初始化
+ @result 已实例化的 ZYLoadingViewController
+ */
 -(id)initWithParentView:(UIView*)view {
     self = [super initWithNibName:@"ZYLoadingView" bundle:nil];
     if (self) {
@@ -57,6 +63,10 @@
     return self;
 }
 
+/*!
+ @method show:
+ @abstract 显示加载提示
+ */
 -(void)show {
     if (!self->isInsert) {
         [self->parentView addSubview:self->maskView];
@@ -69,6 +79,10 @@
     [self.indicatorView startAnimating];
 }
 
+/*!
+ @method hide:
+ @abstract 隐藏加载提示
+ */
 -(void)hide {
     self->maskView.hidden = YES;
     self.view.hidden = YES;
