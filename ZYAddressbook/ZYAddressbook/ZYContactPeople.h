@@ -10,6 +10,7 @@
 #import "ZYContactInfo.h"
 #import "ZYNSMutableDictionary.h"
 #import <AddressBook/AddressBook.h>
+#import "NSString+NSStringExtension.h"
 
 /*!
     @interface ZYContactPeople

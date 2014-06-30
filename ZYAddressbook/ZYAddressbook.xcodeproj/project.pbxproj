@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8318363D1960F77C0098C82F /* NSString+NSStringExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8318363C1960F77C0098C82F /* NSString+NSStringExtension.m */; };
 		83203DD5195A61AB00AE3849 /* ZYHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83203DD4195A61AB00AE3849 /* ZYHttpRequest.m */; };
 		83530E49195BEB3C004966A7 /* ZYLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83530E47195BEB3C004966A7 /* ZYLoadingViewController.m */; };
 		83530E4A195BEB3C004966A7 /* ZYLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83530E48195BEB3C004966A7 /* ZYLoadingView.xib */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8318363B1960F77C0098C82F /* NSString+NSStringExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSStringExtension.h"; sourceTree = "<group>"; };
+		8318363C1960F77C0098C82F /* NSString+NSStringExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSStringExtension.m"; sourceTree = "<group>"; };
 		83203DD3195A61AB00AE3849 /* ZYHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYHttpRequest.h; sourceTree = "<group>"; };
 		83203DD4195A61AB00AE3849 /* ZYHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYHttpRequest.m; sourceTree = "<group>"; };
 		83203DD8195A641300AE3849 /* ZYHttpResponseDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHttpResponseDelegate.h; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 			children = (
 				ED5AF434195FC2C70076FD0B /* ZYNSMutableDictionary.h */,
 				ED5AF435195FC2C70076FD0B /* ZYNSMutableDictionary.m */,
+				8318363B1960F77C0098C82F /* NSString+NSStringExtension.h */,
+				8318363C1960F77C0098C82F /* NSString+NSStringExtension.m */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 				83C982BA195AA9F9005E9905 /* ZYSignInViewController.m in Sources */,
 				8359AF3C195981F100519EF7 /* ZYAppDelegate.m in Sources */,
 				ED9A7908195A7FAF0016A739 /* ZYUserService.m in Sources */,
+				8318363D1960F77C0098C82F /* NSString+NSStringExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

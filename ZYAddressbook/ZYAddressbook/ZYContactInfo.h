@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSString+NSStringExtension.h"
 
 /*!
     @interface ZYContactInfo

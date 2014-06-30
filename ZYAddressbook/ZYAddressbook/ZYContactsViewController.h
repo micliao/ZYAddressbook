@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ZYNSMutableDictionary.h"
+#import "NSString+NSStringExtension.h"
 
 @interface ZYContactsViewController : UIViewController <UISearchDisplayDelegate,UITableViewDataSource,UITableViewDelegate>
 {

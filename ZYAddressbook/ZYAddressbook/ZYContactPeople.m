@@ -55,7 +55,8 @@
  @param searchText 搜索文本
  */
 -(BOOL)isContains:(NSString*)searchText {
-    return (self.firstName !=nil && [self.firstName containsString:searchText]) || (self.middleName != nil && [self.middleName containsString:searchText]) || (self.lastName != nil && [self.lastName containsString:searchText]) || [self isPropertyInfosContains:searchText];
+    return (self.firstName != nil && [self.firstName containsString:searchText]) || (self.middleName != nil && [self.middleName containsString:searchText]) || (self.lastName != nil && [self.lastName containsString:searchText]) || [self isPropertyInfosContains:searchText];
+    
 }
 
 /*!
