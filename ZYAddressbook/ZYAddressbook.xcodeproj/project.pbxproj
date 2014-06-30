@@ -35,6 +35,7 @@
 		ED9A7902195A7C330016A739 /* ZYUserDao.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7901195A7C330016A739 /* ZYUserDao.m */; };
 		ED9A7905195A7CD70016A739 /* ZYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7904195A7CD70016A739 /* ZYUser.m */; };
 		ED9A7908195A7FAF0016A739 /* ZYUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7907195A7FAF0016A739 /* ZYUserService.m */; };
+		EDB3B79019616109000206D4 /* ZYMenuViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3B78F19616109000206D4 /* ZYMenuViewLayout.m */; };
 		EDFC905C195D433800DC902A /* ZYMenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC905B195D433800DC902A /* ZYMenuViewCell.m */; };
 		EDFC905E195D437A00DC902A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFC905D195D437A00DC902A /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +99,8 @@
 		ED9A7906195A7FAF0016A739 /* ZYUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYUserService.h; sourceTree = "<group>"; };
 		ED9A7907195A7FAF0016A739 /* ZYUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYUserService.m; sourceTree = "<group>"; };
 		ED9A7909195A805D0016A739 /* ZYServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYServiceDelegate.h; sourceTree = "<group>"; };
+		EDB3B78E19616109000206D4 /* ZYMenuViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYMenuViewLayout.h; sourceTree = "<group>"; };
+		EDB3B78F19616109000206D4 /* ZYMenuViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYMenuViewLayout.m; sourceTree = "<group>"; };
 		EDFC905A195D433800DC902A /* ZYMenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYMenuViewCell.h; sourceTree = "<group>"; };
 		EDFC905B195D433800DC902A /* ZYMenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYMenuViewCell.m; sourceTree = "<group>"; };
 		EDFC905D195D437A00DC902A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -318,6 +321,8 @@
 				EDFC905B195D433800DC902A /* ZYMenuViewCell.m */,
 				83F69ECD195EBB5400B38519 /* ZYContactsViewController.h */,
 				83F69ECE195EBB5400B38519 /* ZYContactsViewController.m */,
+				EDB3B78E19616109000206D4 /* ZYMenuViewLayout.h */,
+				EDB3B78F19616109000206D4 /* ZYMenuViewLayout.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -428,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB3B79019616109000206D4 /* ZYMenuViewLayout.m in Sources */,
 				83203DD5195A61AB00AE3849 /* ZYHttpRequest.m in Sources */,
 				8359AF38195981F100519EF7 /* main.m in Sources */,
 				EDFC905C195D433800DC902A /* ZYMenuViewCell.m in Sources */,

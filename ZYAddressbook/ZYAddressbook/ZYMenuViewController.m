@@ -9,6 +9,7 @@
 #import "ZYMenuViewController.h"
 
 @interface ZYMenuViewController ()
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
 @end
 
@@ -26,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     NSArray *menuSec1 = [[NSArray alloc] initWithObjects:@"s1-0",@"s1-1",nil];
     NSArray *menuSec2 = [[NSArray alloc] initWithObjects:@"s2-0",@"s2-1",nil];
     NSArray *menuSec3 = [[NSArray alloc] initWithObjects:@"s3-0",@"s3-1",nil];
