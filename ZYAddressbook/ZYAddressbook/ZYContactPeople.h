@@ -18,16 +18,15 @@
  */
 @interface ZYContactPeople : NSObject
 
-//姓
+//名
 @property NSString *firstName;
 //中名
 @property NSString *middleName;
-//名
+//姓
 @property NSString *lastName;
 //属性
 @property ZYNSMutableDictionary *propertyInfos;
 
-+(NSArray*)getAllContacts;
 -(BOOL)isContains:(NSString*)searchText;
 
 @end
