@@ -23,6 +23,7 @@
 {
     [super viewDidLoad];
 
+    //NSArray* contactPeople = [ZYContactPeople getAllContacts];
     self->allContacts = [[ZYNSMutableDictionary alloc]initWithIndexedObjects:[[NSArray alloc] initWithObjects:[[NSArray alloc]initWithObjects:@"Adeb",@"Adam",@"Acc",@"Arm",@"Apu",nil],[[NSArray alloc]initWithObjects:@"Barana",@"Bob",@"Bom",@"Bobo",@"Boy",nil],[[NSArray alloc]initWithObjects:@"Code",@"Ca",@"Coca",@"Can",@"Cab",nil],[[NSArray alloc]initWithObjects:@"Derek",@"Dam",@"Dud",@"Dom",@"Deb",nil], nil ]  forKeys:[[NSArray alloc]initWithObjects:@"A",@"B",@"C",@"D", nil]];
 }
 
