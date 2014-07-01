@@ -10,4 +10,24 @@
 
 @interface ZYMenuViewLayout : UICollectionViewLayout
 
+@property CGSize collectionViewSize;
+
+@property int numberOfItemsInSection;
+
+@property int numberOfSections;
+
+@property int itemWidth;
+
+@property int itemHeight;
+
+@property int widthSpacing;
+
+@property int heightSpacing;
+
+@property int itemBaseWidth;
+
+@property int itemBaseHeight;
+
+@property int numberOfItems;
+
 @end
