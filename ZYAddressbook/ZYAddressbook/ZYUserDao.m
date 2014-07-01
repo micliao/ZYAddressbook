@@ -22,7 +22,7 @@
     return 0;
 }
 
--(NSObject*)select:(int)ID{
+-(ZYUser*)select:(int)ID{
     return nil;
 }
 

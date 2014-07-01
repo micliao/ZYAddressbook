@@ -40,6 +40,9 @@
 		ED9A7905195A7CD70016A739 /* ZYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7904195A7CD70016A739 /* ZYUser.m */; };
 		ED9A7908195A7FAF0016A739 /* ZYUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9A7907195A7FAF0016A739 /* ZYUserService.m */; };
 		EDB3B79019616109000206D4 /* ZYMenuViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3B78F19616109000206D4 /* ZYMenuViewLayout.m */; };
+		EDB3B79319624543000206D4 /* ZYMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3B79219624543000206D4 /* ZYMenu.m */; };
+		EDB3B7961962455D000206D4 /* ZYMenuDao.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3B7951962455D000206D4 /* ZYMenuDao.m */; };
+		EDB3B799196245E1000206D4 /* ZYMenuService.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3B798196245E1000206D4 /* ZYMenuService.m */; };
 		EDFC905C195D433800DC902A /* ZYMenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFC905B195D433800DC902A /* ZYMenuViewCell.m */; };
 		EDFC905E195D437A00DC902A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFC905D195D437A00DC902A /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
@@ -113,6 +116,12 @@
 		ED9A7909195A805D0016A739 /* ZYServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYServiceDelegate.h; sourceTree = "<group>"; };
 		EDB3B78E19616109000206D4 /* ZYMenuViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYMenuViewLayout.h; sourceTree = "<group>"; };
 		EDB3B78F19616109000206D4 /* ZYMenuViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYMenuViewLayout.m; sourceTree = "<group>"; };
+		EDB3B79119624543000206D4 /* ZYMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYMenu.h; sourceTree = "<group>"; };
+		EDB3B79219624543000206D4 /* ZYMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYMenu.m; sourceTree = "<group>"; };
+		EDB3B7941962455D000206D4 /* ZYMenuDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYMenuDao.h; sourceTree = "<group>"; };
+		EDB3B7951962455D000206D4 /* ZYMenuDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYMenuDao.m; sourceTree = "<group>"; };
+		EDB3B797196245E1000206D4 /* ZYMenuService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYMenuService.h; sourceTree = "<group>"; };
+		EDB3B798196245E1000206D4 /* ZYMenuService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYMenuService.m; sourceTree = "<group>"; };
 		EDFC905A195D433800DC902A /* ZYMenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYMenuViewCell.h; sourceTree = "<group>"; };
 		EDFC905B195D433800DC902A /* ZYMenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYMenuViewCell.m; sourceTree = "<group>"; };
 		EDFC905D195D437A00DC902A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -176,6 +185,8 @@
 				ED9A7901195A7C330016A739 /* ZYUserDao.m */,
 				831E765919615AD700CE6938 /* ZYContactPeopleDao.h */,
 				831E765A19615AD700CE6938 /* ZYContactPeopleDao.m */,
+				EDB3B7941962455D000206D4 /* ZYMenuDao.h */,
+				EDB3B7951962455D000206D4 /* ZYMenuDao.m */,
 			);
 			name = Dao;
 			sourceTree = "<group>";
@@ -188,6 +199,8 @@
 				ED9A7909195A805D0016A739 /* ZYServiceDelegate.h */,
 				831E765C1961614500CE6938 /* ZYContactPeopleService.h */,
 				831E765D1961614500CE6938 /* ZYContactPeopleService.m */,
+				EDB3B797196245E1000206D4 /* ZYMenuService.h */,
+				EDB3B798196245E1000206D4 /* ZYMenuService.m */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -198,6 +211,8 @@
 				ED5AF438195FF1E90076FD0B /* ZYContacts */,
 				ED9A7903195A7CD70016A739 /* ZYUser.h */,
 				ED9A7904195A7CD70016A739 /* ZYUser.m */,
+				EDB3B79119624543000206D4 /* ZYMenu.h */,
+				EDB3B79219624543000206D4 /* ZYMenu.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -475,6 +490,7 @@
 				831957AC1962970800675C68 /* ZYArchiveCache.m in Sources */,
 				8359AF38195981F100519EF7 /* main.m in Sources */,
 				EDFC905C195D433800DC902A /* ZYMenuViewCell.m in Sources */,
+				EDB3B7961962455D000206D4 /* ZYMenuDao.m in Sources */,
 				83A02D84195BFF1B0098FD58 /* ZYNoticeViewController.m in Sources */,
 				831E765E1961614500CE6938 /* ZYContactPeopleService.m in Sources */,
 				831E765B19615AD700CE6938 /* ZYContactPeopleDao.m in Sources */,
