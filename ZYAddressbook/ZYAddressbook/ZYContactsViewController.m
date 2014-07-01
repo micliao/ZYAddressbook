@@ -22,9 +22,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    //NSArray* contactPeople = [ZYContactPeople getAllContacts];
-    self->allContacts = [[ZYNSMutableDictionary alloc]initWithIndexedObjects:[[NSArray alloc] initWithObjects:[[NSArray alloc]initWithObjects:@"Adeb",@"Adam",@"Acc",@"Arm",@"Apu",nil],[[NSArray alloc]initWithObjects:@"Barana",@"Bob",@"Bom",@"Bobo",@"Boy",nil],[[NSArray alloc]initWithObjects:@"Code",@"Ca",@"Coca",@"Can",@"Cab",nil],[[NSArray alloc]initWithObjects:@"Derek",@"Dam",@"Dud",@"Dom",@"Deb",nil], nil ]  forKeys:[[NSArray alloc]initWithObjects:@"A",@"B",@"C",@"D", nil]];
+    
+    ZYContactPeopleService *service = [[ZYContactPeopleService alloc]init];
+    ZYNSMutableDictionary *contactPeople = [service getAllCachedContactPeoplesGroupByFirstLetter];
+    if (contactPeople == nil || contactPeople.realDictionary == nil || contactPeople.realDictionary.count == 0) {
+        contactPeople = [service getAllContactPeoplesGroupByFirstLetter];
+        if ([contactPeople keyForIndex:0]) {
+            self->allContacts = contactPeople[0];
+            [service setContactPeoplesCache:contactPeople[0]];
+        }
+    }
+    else {
+        self->allContacts = contactPeople;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,15 +54,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
-    NSString *name;
+    ZYContactPeople *people;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        name = self->searchedContacts[indexPath.row];
+        people = self->searchedContacts[indexPath.row];
     }
     else {
-        name = self->allContacts[indexPath.section][indexPath.row];
+        people = self->allContacts[indexPath.section][indexPath.row];
     }
-    [cell.textLabel setText:name];
-    [cell.detailTextLabel setText:[@"i'm " stringByAppendingString:name]];
+    [cell.textLabel setText:people.viewName];
+    [cell.detailTextLabel setText:[NSString stringWithFormat:@"my key: %i",people.phoneKey]];
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;
 }
@@ -61,7 +71,7 @@
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return self->searchedContacts == nil ? 0 : 1;
     }
-    return [[self->allContacts realDictionary] count];
+    return self->allContacts == nil ? 0 : [[self->allContacts realDictionary] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -95,12 +105,13 @@
     if(self->searchedContacts == nil) {
         self->searchedContacts = [[NSMutableArray alloc]init];
     }
-    
-    [self->searchedContacts removeAllObjects];
+    else {
+        [self->searchedContacts removeAllObjects];
+    }
     for (NSObject *obj in [self->allContacts realDictionary]) {
-        for (NSString *name in [[self->allContacts realDictionary] objectForKey:obj]) {
-            if ([name containsString:searchString]) {
-                [self->searchedContacts addObject:name];
+        for (ZYContactPeople *people in [[self->allContacts realDictionary] objectForKey:obj]) {
+            if ([people isContains:searchString]) {
+                [self->searchedContacts addObject:people];
             }
         }
     }

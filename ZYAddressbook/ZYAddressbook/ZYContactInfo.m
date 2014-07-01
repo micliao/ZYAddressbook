@@ -10,6 +10,20 @@
 
 @implementation ZYContactInfo
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.propertyLabel forKey:@"propertyLabel"];
+    [aCoder encodeObject:self.propertyValue forKey:@"propertyValue"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super init]) {
+        self.propertyLabel = [aDecoder decodeObjectForKey:@"propertyLabel"];
+        self.propertyValue = [aDecoder decodeObjectForKey:@"propertyValue"];
+    }
+    
+    return self;
+}
+
 /*!
  @method isContains:
  @abstract 是否包含搜索文本

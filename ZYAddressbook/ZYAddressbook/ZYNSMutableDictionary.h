@@ -12,14 +12,18 @@
  @interface ZYNSMutableDictionary
  @abstract 自定义数字索引字典
  */
-@interface ZYNSMutableDictionary : NSObject
+@interface ZYNSMutableDictionary : NSObject<NSCoding>
 {
     NSMutableArray *indexArray;
     NSMutableDictionary *dictionary;
 }
 
+-(id)init;
 -(NSMutableDictionary *)realDictionary;
 -(void)setValue:(NSObject *)value forIndex:(NSInteger)index;
+-(void)setValue:(NSObject *)value forKey:(id<NSCopying>)key;
+-(void)removeObjectForKey:(id)key;
+-(void)removeObjectForIndex:(int)index;
 -(id)objectForIndex:(NSInteger)index;
 -(id)initWithIndexedObjects:(NSArray *)objects forKeys:(NSArray *)keys;
 -(id)objectAtIndexedSubscript:(NSUInteger)idx;

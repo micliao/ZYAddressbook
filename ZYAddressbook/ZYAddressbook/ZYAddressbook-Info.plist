@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSContactsUsageDescription</key>
+	<string>智云通讯录所有功能基于您的通讯录数据实现，若拒绝将导致功能无法使用。智云通讯录将妥善保管您的数据安全，请放心使用。</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

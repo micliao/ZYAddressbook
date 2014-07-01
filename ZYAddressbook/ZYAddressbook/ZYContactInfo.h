@@ -13,7 +13,7 @@
     @interface ZYContactInfo
     @abstract 通讯录属性
  */
-@interface ZYContactInfo : NSObject
+@interface ZYContactInfo : NSObject<NSCoding>
 
 //属性名称
 @property NSString *propertyLabel;

@@ -13,8 +13,9 @@
 
 @interface ZYContactPeopleService : NSObject<ZYServiceDelegate>
 
--(NSDictionary*)getAllContactPeoples;
-
--(NSDictionary*)getAllContactPeoplesGroupByFirstLetter;
+-(ZYNSMutableDictionary*)getAllContactPeoples;
+-(ZYNSMutableDictionary*)getAllContactPeoplesGroupByFirstLetter;
+-(ZYNSMutableDictionary*)getAllCachedContactPeoplesGroupByFirstLetter;
+-(void)setContactPeoplesCache:(ZYNSMutableDictionary*)contactPeoples;
 
 @end

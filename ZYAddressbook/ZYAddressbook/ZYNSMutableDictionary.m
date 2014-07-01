@@ -10,6 +10,26 @@
 
 @implementation ZYNSMutableDictionary
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self->dictionary forKey:@"dictionary"];
+    [aCoder encodeObject:self->indexArray forKey:@"indexArray"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super init]) {
+        self->dictionary = [aDecoder decodeObjectForKey:@"dictionary"];
+        self->indexArray = [aDecoder decodeObjectForKey:@"indexArray"];
+    }
+    
+    return self;
+}
+
+-(id)init {
+    self->dictionary = [[NSMutableDictionary alloc]init];
+    self->indexArray = [[NSMutableArray alloc]init];
+    return self;
+}
+
 /*!
  @method setValue:forIndex:
  @abstract 设置数字索引值
@@ -18,7 +38,22 @@
  */
 -(void)setValue:(NSObject *)value forIndex:(NSInteger)index
 {
-    [self->dictionary setObject:value forKey:self->indexArray[index]];
+    if (index < [self->indexArray count] && index >= 0) {
+        [self->dictionary setObject:value forKey:self->indexArray[index]];
+    }
+}
+
+/*!
+ @method setValue:forKey:
+ @abstract 设置键索引值
+ @param value 索引值
+ @param forKey 键索引
+ */
+-(void)setValue:(NSObject *)value forKey:(id<NSCopying>)key {
+    if([self->dictionary objectForKey:key] == nil) {
+        [self->indexArray addObject:key];
+    }
+    [self->dictionary setObject:value forKey:key];
 }
 
 /*!
@@ -64,6 +99,33 @@
 -(void)setObject:(id)anObject atIndexedSubscript:(NSUInteger)index
 {
     [self->dictionary setObject:anObject forKey:self->indexArray[index]];
+    
+}
+
+/*!
+ @method removeObjectForKey:
+ @abstract 移除指定键
+ @param key 键
+ */
+-(void)removeObjectForKey:(id)key {
+    
+    if ([self->indexArray containsObject:key]) {
+        [self->indexArray removeObject:key];
+    }
+    [self->dictionary removeObjectForKey:key];
+}
+
+/*!
+ @method removeObjectForIndex:
+ @abstract 移除指定数字索引
+ @param index 键
+ */
+-(void)removeObjectForIndex:(int)index {
+    if (index < [self->indexArray count] && index >= 0) {
+        NSObject *key = self->indexArray[index];
+        [self->dictionary removeObjectForKey:key];
+        [self->indexArray removeObjectAtIndex:index];
+    }
 }
 
 /*!

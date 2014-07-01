@@ -10,9 +10,11 @@
 #import "ZYDaoDelegate.h"
 #import "ZYContactPeople.h"
 #import <AddressBook/AddressBook.h>
+#import "ZYArchiveCache.h"
 
 @interface ZYContactPeopleDao : NSObject<ZYDaoDelegate>
 
--(NSDictionary*)getAllContactPeoples;
-
+-(ZYNSMutableDictionary*)getAllContactPeoples;
+-(NSMutableArray*)getAllCachedContactPeoples;
+-(void)setContactPeoplesCache:(NSMutableArray*)contactPeoples;
 @end

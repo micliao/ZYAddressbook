@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8318363D1960F77C0098C82F /* NSString+NSStringExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8318363C1960F77C0098C82F /* NSString+NSStringExtension.m */; };
+		831957AC1962970800675C68 /* ZYArchiveCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 831957AB1962970800675C68 /* ZYArchiveCache.m */; };
 		831E765B19615AD700CE6938 /* ZYContactPeopleDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 831E765A19615AD700CE6938 /* ZYContactPeopleDao.m */; };
 		831E765E1961614500CE6938 /* ZYContactPeopleService.m in Sources */ = {isa = PBXBuildFile; fileRef = 831E765D1961614500CE6938 /* ZYContactPeopleService.m */; };
-		831E76651961675E00CE6938 /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = 831E76631961675E00CE6938 /* pinyin.c */; };
 		83203DD5195A61AB00AE3849 /* ZYHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83203DD4195A61AB00AE3849 /* ZYHttpRequest.m */; };
 		83530E49195BEB3C004966A7 /* ZYLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83530E47195BEB3C004966A7 /* ZYLoadingViewController.m */; };
 		83530E4A195BEB3C004966A7 /* ZYLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83530E48195BEB3C004966A7 /* ZYLoadingView.xib */; };
@@ -27,6 +27,7 @@
 		8359AF51195981F100519EF7 /* ZYAddressbookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8359AF50195981F100519EF7 /* ZYAddressbookTests.m */; };
 		83A02D84195BFF1B0098FD58 /* ZYNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A02D82195BFF1B0098FD58 /* ZYNoticeViewController.m */; };
 		83A02D85195BFF1B0098FD58 /* ZYNoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83A02D83195BFF1B0098FD58 /* ZYNoticeView.xib */; };
+		83A9E5EC19624B8D0081A272 /* ChineseToPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A9E5EB19624B8D0081A272 /* ChineseToPinyin.m */; };
 		83C982BA195AA9F9005E9905 /* ZYSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C982B9195AA9F9005E9905 /* ZYSignInViewController.m */; };
 		83F69ECF195EBB5400B38519 /* ZYContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F69ECE195EBB5400B38519 /* ZYContactsViewController.m */; };
 		ED5AF436195FC2C70076FD0B /* ZYNSMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5AF435195FC2C70076FD0B /* ZYNSMutableDictionary.m */; };
@@ -56,12 +57,12 @@
 /* Begin PBXFileReference section */
 		8318363B1960F77C0098C82F /* NSString+NSStringExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSStringExtension.h"; sourceTree = "<group>"; };
 		8318363C1960F77C0098C82F /* NSString+NSStringExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSStringExtension.m"; sourceTree = "<group>"; };
+		831957AA1962970800675C68 /* ZYArchiveCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYArchiveCache.h; sourceTree = "<group>"; };
+		831957AB1962970800675C68 /* ZYArchiveCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYArchiveCache.m; sourceTree = "<group>"; };
 		831E765919615AD700CE6938 /* ZYContactPeopleDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYContactPeopleDao.h; sourceTree = "<group>"; };
 		831E765A19615AD700CE6938 /* ZYContactPeopleDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYContactPeopleDao.m; sourceTree = "<group>"; };
 		831E765C1961614500CE6938 /* ZYContactPeopleService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYContactPeopleService.h; sourceTree = "<group>"; };
 		831E765D1961614500CE6938 /* ZYContactPeopleService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYContactPeopleService.m; sourceTree = "<group>"; };
-		831E76631961675E00CE6938 /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
-		831E76641961675E00CE6938 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
 		83203DD3195A61AB00AE3849 /* ZYHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYHttpRequest.h; sourceTree = "<group>"; };
 		83203DD4195A61AB00AE3849 /* ZYHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYHttpRequest.m; sourceTree = "<group>"; };
 		83203DD8195A641300AE3849 /* ZYHttpResponseDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHttpResponseDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +87,8 @@
 		83A02D81195BFF1B0098FD58 /* ZYNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYNoticeViewController.h; sourceTree = "<group>"; };
 		83A02D82195BFF1B0098FD58 /* ZYNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYNoticeViewController.m; sourceTree = "<group>"; };
 		83A02D83195BFF1B0098FD58 /* ZYNoticeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYNoticeView.xib; sourceTree = "<group>"; };
+		83A9E5EA19624B8D0081A272 /* ChineseToPinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyin.h; sourceTree = "<group>"; };
+		83A9E5EB19624B8D0081A272 /* ChineseToPinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyin.m; sourceTree = "<group>"; };
 		83C982B8195AA9F9005E9905 /* ZYSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSignInViewController.h; sourceTree = "<group>"; };
 		83C982B9195AA9F9005E9905 /* ZYSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSignInViewController.m; sourceTree = "<group>"; };
 		83F69ECD195EBB5400B38519 /* ZYContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYContactsViewController.h; sourceTree = "<group>"; };
@@ -140,11 +143,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		831957A9196296AE00675C68 /* ZYCache */ = {
+			isa = PBXGroup;
+			children = (
+				831957AA1962970800675C68 /* ZYArchiveCache.h */,
+				831957AB1962970800675C68 /* ZYArchiveCache.m */,
+			);
+			name = ZYCache;
+			sourceTree = "<group>";
+		};
 		831E76621961672E00CE6938 /* ZYPinyin */ = {
 			isa = PBXGroup;
 			children = (
-				831E76631961675E00CE6938 /* pinyin.c */,
-				831E76641961675E00CE6938 /* pinyin.h */,
+				83A9E5EA19624B8D0081A272 /* ChineseToPinyin.h */,
+				83A9E5EB19624B8D0081A272 /* ChineseToPinyin.m */,
 			);
 			name = ZYPinyin;
 			sourceTree = "<group>";
@@ -204,6 +216,7 @@
 		83203DD6195A630100AE3849 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				831957A9196296AE00675C68 /* ZYCache */,
 				831E76621961672E00CE6938 /* ZYPinyin */,
 				ED5AF437195FF1C50076FD0B /* ZYHttpRequest */,
 				83EC5B48195D10D100A1610D /* ZYNotice */,
@@ -457,8 +470,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB3B79019616109000206D4 /* ZYMenuViewLayout.m in Sources */,
+				83A9E5EC19624B8D0081A272 /* ChineseToPinyin.m in Sources */,
 				83203DD5195A61AB00AE3849 /* ZYHttpRequest.m in Sources */,
-				831E76651961675E00CE6938 /* pinyin.c in Sources */,
+				831957AC1962970800675C68 /* ZYArchiveCache.m in Sources */,
 				8359AF38195981F100519EF7 /* main.m in Sources */,
 				EDFC905C195D433800DC902A /* ZYMenuViewCell.m in Sources */,
 				83A02D84195BFF1B0098FD58 /* ZYNoticeViewController.m in Sources */,

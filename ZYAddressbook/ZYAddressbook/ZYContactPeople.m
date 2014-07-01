@@ -10,14 +10,33 @@
 
 @implementation ZYContactPeople
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.firstName forKey:@"firstName"];
+    [aCoder encodeObject:self.middleName forKey:@"middleName"];
+    [aCoder encodeObject:self.lastName forKey:@"lastName"];
+    [aCoder encodeObject:[[NSNumber alloc]initWithInteger:self.phoneKey ] forKey:@"phoneKey"];
+    [aCoder encodeObject:self.propertyInfos forKey:@"propertyInfos"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super init]) {
+        self.firstName = [aDecoder decodeObjectForKey:@"firstName"];
+        self.middleName = [aDecoder decodeObjectForKey:@"middleName"];
+        self.lastName = [aDecoder decodeObjectForKey:@"lastName"];
+        self.phoneKey = [[aDecoder decodeObjectForKey:@"phoneKey"] integerValue];
+        self.propertyInfos = [aDecoder decodeObjectForKey:@"propertyInfos"];
+    }
+    
+    return self;
+}
+
 /*!
  @method isContains:
  @abstract 是否包含搜索文本
  @param searchText 搜索文本
  */
 -(BOOL)isContains:(NSString*)searchText {
-    return (self.firstName != nil && [self.firstName containsString:searchText]) || (self.middleName != nil && [self.middleName containsString:searchText]) || (self.lastName != nil && [self.lastName containsString:searchText]) || [self isPropertyInfosContains:searchText];
-    
+    return (self->nameLetters != nil && [self->nameLetters containsString:searchText]) || (self.firstName != nil && [self.firstName containsString:searchText]) || (self.middleName != nil && [self.middleName containsString:searchText]) || (self.lastName != nil && [self.lastName containsString:searchText]) || [self isPropertyInfosContains:searchText];
 }
 
 /*!
@@ -38,6 +57,56 @@
         }
     }
     return result;
+}
+
+-(void) setFirstName:(NSString *)firstName {
+    self->_firstName = firstName;
+    [self setName];
+}
+
+-(NSString*)firstName {
+    return self->_firstName;
+}
+
+-(void)setMiddleName:(NSString *)middleName {
+    self->_middleName = middleName;
+    [self setName];
+}
+
+-(NSString*)middleName {
+    return self->_middleName;
+}
+
+-(void)setLastName:(NSString *)lastName {
+    self->_lastName = lastName;
+    [self setName];
+}
+
+-(NSString*)lastName {
+    return self->_lastName;
+}
+
+/*!
+ @method nameLetters
+ @abstract 获取名字的拼音字母
+ */
+-(NSString*)nameLetters {
+    return self->nameLetters;
+}
+
+/*!
+ @method viewName
+ @abstract 获取用于显示的名称组合
+ */
+-(NSString*) viewName {
+    return self->viewName;
+}
+
+-(void)setName {
+    self->viewName = [NSString stringWithFormat:@"%@%@%@",self.lastName ? self.lastName : @"",self.middleName ? self.middleName : @"",self.firstName ? self.firstName : @""];
+    
+    NSString *pinyin = [ChineseToPinyin pinyinFromChiniseString:self->viewName];
+    self->nameLetters = pinyin == nil || [pinyin length] ==0 ? @"#" : pinyin;
 }
 
 @end

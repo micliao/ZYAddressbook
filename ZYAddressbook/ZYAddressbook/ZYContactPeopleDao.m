@@ -29,9 +29,9 @@
 /*!
  @method getAllContactPeoples
  @abstract 获取所有通讯录成员
- @result
+ @result 所有通讯录成员
  */
--(NSDictionary*)getAllContactPeoples {
+-(ZYNSMutableDictionary*)getAllContactPeoples {
     NSMutableArray *contacts = [[NSMutableArray alloc]init];
     ABAddressBookRef tmpAddressBook = nil;
     __block BOOL accessGranted = YES;
@@ -58,11 +58,30 @@
             contact.firstName = (__bridge NSString *)(ABRecordCopyValue((__bridge ABRecordRef)(people), kABPersonFirstNameProperty));
             contact.middleName = (__bridge NSString *)(ABRecordCopyValue((__bridge ABRecordRef)(people), kABPersonMiddleNameProperty));
             contact.lastName = (__bridge NSString *)(ABRecordCopyValue((__bridge ABRecordRef)(people), kABPersonLastNameProperty));
+            contact.phoneKey = (NSInteger)ABRecordGetRecordID((__bridge ABRecordRef)(people));
             [contacts addObject:contact];
         }
     }
     
-    return [[NSDictionary alloc]initWithObjectsAndKeys:contacts,accessGranted, nil];
+    return [[ZYNSMutableDictionary alloc] initWithIndexedObjects:[[NSArray alloc]initWithObjects:contacts, nil] forKeys:[[NSArray alloc]initWithObjects:[[NSNumber alloc]initWithBool:accessGranted], nil]];
+}
+
+/*!
+ @method getAllContactPeoples
+ @abstract 获取所有缓存通讯录成员
+ @result 所有缓存通讯录成员
+ */
+-(NSMutableArray*)getAllCachedContactPeoples {
+     NSMutableArray *contacts = [[[ZYArchiveCache alloc]init] readCache:ZYArchiveCache.contactCacheFileName];
+    return contacts;
+}
+
+/*!
+ @method setContactPeoplesCache:
+ @abstract 缓存通讯录成员
+ */
+-(void)setContactPeoplesCache:(NSMutableArray *)contactPeoples {
+    [[[ZYArchiveCache alloc]init] writeCacheFile:contactPeoples toFile:ZYArchiveCache.contactCacheFileName];
 }
 
 @end
