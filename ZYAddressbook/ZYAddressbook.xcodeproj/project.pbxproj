@@ -486,6 +486,8 @@
 			files = (
 				EDB3B79019616109000206D4 /* ZYMenuViewLayout.m in Sources */,
 				83A9E5EC19624B8D0081A272 /* ChineseToPinyin.m in Sources */,
+				EDB3B799196245E1000206D4 /* ZYMenuService.m in Sources */,
+				EDB3B79319624543000206D4 /* ZYMenu.m in Sources */,
 				83203DD5195A61AB00AE3849 /* ZYHttpRequest.m in Sources */,
 				831957AC1962970800675C68 /* ZYArchiveCache.m in Sources */,
 				8359AF38195981F100519EF7 /* main.m in Sources */,
