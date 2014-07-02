@@ -16,18 +16,22 @@
 
 @property int numberOfSections;
 
-@property int itemWidth;
+@property float itemWidth;
 
-@property int itemHeight;
+@property float itemHeight;
 
-@property int widthSpacing;
+@property float widthSpacing;
 
-@property int heightSpacing;
+@property float heightSpacing;
 
-@property int itemBaseWidth;
+@property float itemBaseWidth;
 
-@property int itemBaseHeight;
+@property float itemBaseHeight;
 
 @property int numberOfItems;
+
+@property float headerHeight;
+
+@property float footerHeight;
 
 @end

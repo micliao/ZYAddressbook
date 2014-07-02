@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZYMenuViewLayout.h"
 
 @interface ZYMenuViewController : UICollectionViewController
 
 @property NSArray *menus;
+
+@property int numberOfItemsInSection;
 
 @end
