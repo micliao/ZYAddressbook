@@ -36,6 +36,8 @@
 @property ZYNSMutableDictionary *propertyInfos;
 //唯一标识
 @property NSInteger phoneKey;
+//最近更新时间
+@property NSDate *lastestDateTime;
 
 -(BOOL)isContains:(NSString*)searchText;
 

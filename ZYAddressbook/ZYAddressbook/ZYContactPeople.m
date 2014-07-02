@@ -16,6 +16,7 @@
     [aCoder encodeObject:self.lastName forKey:@"lastName"];
     [aCoder encodeObject:[[NSNumber alloc]initWithInteger:self.phoneKey ] forKey:@"phoneKey"];
     [aCoder encodeObject:self.propertyInfos forKey:@"propertyInfos"];
+    [aCoder encodeObject:self.lastestDateTime forKey:@"lastestDateTime"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -25,6 +26,7 @@
         self.lastName = [aDecoder decodeObjectForKey:@"lastName"];
         self.phoneKey = [[aDecoder decodeObjectForKey:@"phoneKey"] integerValue];
         self.propertyInfos = [aDecoder decodeObjectForKey:@"propertyInfos"];
+        self.lastestDateTime = [aDecoder decodeObjectForKey:@"lastestDateTime"];
     }
     
     return self;
@@ -106,7 +108,7 @@
     self->viewName = [NSString stringWithFormat:@"%@%@%@",self.lastName ? self.lastName : @"",self.middleName ? self.middleName : @"",self.firstName ? self.firstName : @""];
     
     NSString *pinyin = [ChineseToPinyin pinyinFromChiniseString:self->viewName];
-    self->nameLetters = pinyin == nil || [pinyin length] ==0 ? @"#" : pinyin;
+    self->nameLetters = pinyin == nil || [pinyin length] == 0 ? @"#" : pinyin;
 }
 
 @end

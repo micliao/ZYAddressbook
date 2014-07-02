@@ -59,6 +59,7 @@
             contact.middleName = (__bridge NSString *)(ABRecordCopyValue((__bridge ABRecordRef)(people), kABPersonMiddleNameProperty));
             contact.lastName = (__bridge NSString *)(ABRecordCopyValue((__bridge ABRecordRef)(people), kABPersonLastNameProperty));
             contact.phoneKey = (NSInteger)ABRecordGetRecordID((__bridge ABRecordRef)(people));
+            contact.lastestDateTime = (__bridge NSDate*)ABRecordCopyValue((__bridge ABRecordRef)(people), kABPersonModificationDateProperty);
             [contacts addObject:contact];
         }
     }
