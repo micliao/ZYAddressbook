@@ -19,6 +19,7 @@
 
 +(NSString*)contactCacheFileName;
 +(NSString*)contactAvatarCacheFileName;
++(NSString*)contactMappingCacheFileName;
 
 @end
 

@@ -82,10 +82,10 @@
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    NSMutableArray *titleArray = [[NSMutableArray alloc] init];
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return nil;
     }
+    NSMutableArray *titleArray = [[NSMutableArray alloc] init];
     for (int i=0;i<[[self->allContacts realDictionary]count];i++) {
         [titleArray addObject:[self->allContacts keyForIndex:i]];
     }
