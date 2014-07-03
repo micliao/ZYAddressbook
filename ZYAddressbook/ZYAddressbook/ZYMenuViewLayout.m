@@ -14,10 +14,11 @@
 -(void)prepareLayout{
     [super prepareLayout];
     self.itemBaseWidth = self.itemBaseHeight = 100;
-    self.itemWidth = 1.4 - 0.2 * self.numberOfItemsInSection;
-    self.itemHeight = 1.4 - 0.2 * self.numberOfSections;
     self.collectionViewSize = self.collectionView.frame.size;
     self.numberOfSections = self.collectionView.numberOfSections;
+    self.itemWidth = (1.4 - 0.2 * self.numberOfItemsInSection) * self.itemBaseWidth;
+    //self.itemHeight = (1.8 - 0.2 * self.numberOfSections) * self.itemBaseHeight;
+    self.itemHeight = self.itemWidth;
     self.widthSpacing = (self.collectionViewSize.width/self.numberOfItemsInSection-self.itemWidth)/2;
     self.heightSpacing = (self.collectionViewSize.height/self.numberOfSections-self.itemHeight)/2;
     
@@ -31,7 +32,7 @@
     NSMutableArray* attributesList = [NSMutableArray array];
     for (NSInteger i=0 ; i < self.numberOfItems; i++) {
         //这里利用了-layoutAttributesForItemAtIndexPath:来获取attributes
-        NSIndexPath* indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+        NSIndexPath* indexPath = [NSIndexPath indexPathForItem:i%self.numberOfItemsInSection inSection:i/self.numberOfItemsInSection];
         [attributesList addObject:[self layoutAttributesForItemAtIndexPath:indexPath]];
     }
     return attributesList;
@@ -39,8 +40,9 @@
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewLayoutAttributes *attributes =  [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+    
     attributes.size = CGSizeMake(self.itemWidth, self.itemHeight);
-    attributes.center = CGPointMake((indexPath.item%self.numberOfItemsInSection)*(3*self.widthSpacing+self.itemWidth) + self.itemWidth/2, (indexPath.item/self.numberOfItemsInSection)*(3*self.heightSpacing+self.itemHeight) + self.itemHeight/2);
+    attributes.center = CGPointMake(indexPath.item*(2*self.widthSpacing+self.itemWidth)+self.itemWidth/2+self.widthSpacing, indexPath.section*(2*self.heightSpacing+self.itemHeight)+self.itemHeight/2+self.heightSpacing);
     return attributes;
 }
 
