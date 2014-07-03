@@ -17,7 +17,7 @@ enum ContactMappingVersionType {
 @property NSInteger phoneKey;
 @property NSInteger serverKey;
 @property NSUUID *version;
-@property NSData *versionDate;
+@property NSDate *versionDate;
 @property enum ContactMappingVersionType versionType;
 
 @end

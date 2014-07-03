@@ -8,13 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import "ZYContactPeopleDao.h"
+#import "ZYHttpRequest.h"
+#import "ZYContactMapping.h"
+#import "ZYContactSyncDaoDelegate.h"
+#import "NSDate+NSDateExtension.h"
 
 /*
     @interface ZYContactSyncDao
     同步通讯录方法
  */
-@interface ZYContactSyncDao : NSObject
+@interface ZYContactSyncDao : NSObject<ZYHttpResponseDelegate>
+{
+    id<ZYContactSyncDaoDelegate> responseDelegate;
+}
 
--(BOOL)syncContact;
+-(void)syncContact:(id<ZYContactSyncDaoDelegate>)delegate;
 
 @end

@@ -12,15 +12,19 @@
 
 @optional
 /*!
- @method httpRequestSuccess: 调用成功后执行方法
+ @method httpRequestSuccess:responseData:
+ @abstract 调用成功后执行方法
  @param responseData http访问返回结果
+ @param userData 用户数据
  */
-- (void)httpRequestSuccess:(NSString *)responseData;
+- (void)httpRequestSuccess:(id)delegate responseData:(NSData *)responseData;
 
 /*!
- @method httpRequestSuccess: 调用成功后执行方法
- @param errorMsg http访问错误信息
+ @method httpRequestFaild:err:
+ @abstract 调用失败后执行方法
+ @param err http访问错误信息
+ @param userData 用户数据
  */
--(void)httpRequestFaild:(NSString *)errorMsg;
+-(void)httpRequestFaild:(id)delegate err:(NSString *)errorMsg;
 
 @end

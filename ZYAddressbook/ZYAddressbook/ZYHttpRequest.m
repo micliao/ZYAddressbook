@@ -97,8 +97,8 @@
  */
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    if ([self -> httpResponseDelegate respondsToSelector:@selector(httpRequestFaild:)]) {
-        [self -> httpResponseDelegate httpRequestFaild:[[NSString alloc] initWithFormat:@"error : 无法连接服务器 %@" , error.localizedDescription]];
+    if ([self -> httpResponseDelegate respondsToSelector:@selector(httpRequestFaild:err:)]) {
+        [self -> httpResponseDelegate httpRequestFaild:self->httpResponseDelegate err:[[NSString alloc] initWithFormat:@"error : 无法连接服务器 %@" , error.localizedDescription]];
     }
     self -> isRequestSuccess = NO;
 }
@@ -112,8 +112,8 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)response;
-    if (httpResponse.statusCode != 200 && [self -> httpResponseDelegate respondsToSelector:@selector(httpRequestFaild:)]) {
-        [self -> httpResponseDelegate httpRequestFaild:[[NSString alloc] initWithFormat:@"error : 无法连接服务器 %d" , httpResponse.statusCode]];
+    if (httpResponse.statusCode != 200 && [self -> httpResponseDelegate respondsToSelector:@selector(httpRequestFaild:err:)]) {
+        [self -> httpResponseDelegate httpRequestFaild:self->httpResponseDelegate err:[[NSString alloc] initWithFormat:@"error : 无法连接服务器 %d" , httpResponse.statusCode]];
     }
     self -> isRequestSuccess = httpResponse.statusCode == 200;
 }
@@ -127,13 +127,13 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     if (self -> isRequestSuccess) {
-        NSString *responseResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        //NSString *responseResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         
-        if (responseResult.length == 0 && [self -> httpResponseDelegate respondsToSelector:@selector(httpRequestFaild:)]) {
-            [self -> httpResponseDelegate httpRequestFaild:@"wrong : 服务器返回结果解析错误"];
+        if (data.length == 0 && [self -> httpResponseDelegate respondsToSelector:@selector(httpRequestFaild:err:)]) {
+            [self -> httpResponseDelegate httpRequestFaild:self->httpResponseDelegate err:@"wrong : 服务器返回结果解析错误"];
         }
-        else if ([self -> httpResponseDelegate respondsToSelector:@selector(httpRequestSuccess:)]){
-            [self -> httpResponseDelegate httpRequestSuccess:responseResult];
+        else if ([self -> httpResponseDelegate respondsToSelector:@selector(httpRequestSuccess:responseData:)]){
+            [self -> httpResponseDelegate httpRequestSuccess:self->httpResponseDelegate responseData:data];
         }
     }
 }

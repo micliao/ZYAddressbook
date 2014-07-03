@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZYContactSyncDao.h"
+#import "ZYContactSyncServiceDelegate.h"
 
-@interface ZYContactSyncService : NSObject
+@interface ZYContactSyncService : NSObject<ZYContactSyncDaoDelegate>
+{
+    id<ZYContactSyncServiceDelegate> responseDelegate;
+}
+
+-(void)syncContact:(id<ZYContactSyncServiceDelegate>)delegate;
+
 
 @end

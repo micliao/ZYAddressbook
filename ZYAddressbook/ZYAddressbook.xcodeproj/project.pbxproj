@@ -10,6 +10,7 @@
 		83089C19196399E100B323C8 /* ZYContactSyncService.m in Sources */ = {isa = PBXBuildFile; fileRef = 83089C18196399E100B323C8 /* ZYContactSyncService.m */; };
 		83089C1C196399F600B323C8 /* ZYContactSyncDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 83089C1B196399F600B323C8 /* ZYContactSyncDao.m */; };
 		83089C1F1963AD3E00B323C8 /* ZYContactMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 83089C1E1963AD3E00B323C8 /* ZYContactMapping.m */; };
+		8313A81B19654CF0003F4EE7 /* NSDate+NSDateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8313A81A19654CF0003F4EE7 /* NSDate+NSDateExtension.m */; };
 		8318363D1960F77C0098C82F /* NSString+NSStringExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8318363C1960F77C0098C82F /* NSString+NSStringExtension.m */; };
 		831957AC1962970800675C68 /* ZYArchiveCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 831957AB1962970800675C68 /* ZYArchiveCache.m */; };
 		831E765B19615AD700CE6938 /* ZYContactPeopleDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 831E765A19615AD700CE6938 /* ZYContactPeopleDao.m */; };
@@ -31,6 +32,7 @@
 		83A02D84195BFF1B0098FD58 /* ZYNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A02D82195BFF1B0098FD58 /* ZYNoticeViewController.m */; };
 		83A02D85195BFF1B0098FD58 /* ZYNoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83A02D83195BFF1B0098FD58 /* ZYNoticeView.xib */; };
 		83A9E5EC19624B8D0081A272 /* ChineseToPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A9E5EB19624B8D0081A272 /* ChineseToPinyin.m */; };
+		83BA10711965549400B0D209 /* ZYJsonSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA10701965549400B0D209 /* ZYJsonSerialization.m */; };
 		83C982BA195AA9F9005E9905 /* ZYSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C982B9195AA9F9005E9905 /* ZYSignInViewController.m */; };
 		83F69ECF195EBB5400B38519 /* ZYContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F69ECE195EBB5400B38519 /* ZYContactsViewController.m */; };
 		ED5AF436195FC2C70076FD0B /* ZYNSMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5AF435195FC2C70076FD0B /* ZYNSMutableDictionary.m */; };
@@ -67,6 +69,10 @@
 		83089C1B196399F600B323C8 /* ZYContactSyncDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYContactSyncDao.m; sourceTree = "<group>"; };
 		83089C1D1963AD3E00B323C8 /* ZYContactMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYContactMapping.h; sourceTree = "<group>"; };
 		83089C1E1963AD3E00B323C8 /* ZYContactMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYContactMapping.m; sourceTree = "<group>"; };
+		8313A81719653A81003F4EE7 /* ZYContactSyncDaoDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYContactSyncDaoDelegate.h; sourceTree = "<group>"; };
+		8313A81819653BA4003F4EE7 /* ZYContactSyncServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYContactSyncServiceDelegate.h; sourceTree = "<group>"; };
+		8313A81919654CF0003F4EE7 /* NSDate+NSDateExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NSDateExtension.h"; sourceTree = "<group>"; };
+		8313A81A19654CF0003F4EE7 /* NSDate+NSDateExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+NSDateExtension.m"; sourceTree = "<group>"; };
 		8318363B1960F77C0098C82F /* NSString+NSStringExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSStringExtension.h"; sourceTree = "<group>"; };
 		8318363C1960F77C0098C82F /* NSString+NSStringExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSStringExtension.m"; sourceTree = "<group>"; };
 		831957AA1962970800675C68 /* ZYArchiveCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYArchiveCache.h; sourceTree = "<group>"; };
@@ -101,6 +107,9 @@
 		83A02D83195BFF1B0098FD58 /* ZYNoticeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYNoticeView.xib; sourceTree = "<group>"; };
 		83A9E5EA19624B8D0081A272 /* ChineseToPinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyin.h; sourceTree = "<group>"; };
 		83A9E5EB19624B8D0081A272 /* ChineseToPinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyin.m; sourceTree = "<group>"; };
+		83BA106F1965549400B0D209 /* ZYJsonSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYJsonSerialization.h; sourceTree = "<group>"; };
+		83BA10701965549400B0D209 /* ZYJsonSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYJsonSerialization.m; sourceTree = "<group>"; };
+		83BA1072196554BC00B0D209 /* ZYJsonSerializationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYJsonSerializationProtocol.h; sourceTree = "<group>"; };
 		83C982B8195AA9F9005E9905 /* ZYSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSignInViewController.h; sourceTree = "<group>"; };
 		83C982B9195AA9F9005E9905 /* ZYSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSignInViewController.m; sourceTree = "<group>"; };
 		83F69ECD195EBB5400B38519 /* ZYContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYContactsViewController.h; sourceTree = "<group>"; };
@@ -198,6 +207,7 @@
 				EDB3B7951962455D000206D4 /* ZYMenuDao.m */,
 				83089C1A196399F600B323C8 /* ZYContactSyncDao.h */,
 				83089C1B196399F600B323C8 /* ZYContactSyncDao.m */,
+				8313A81719653A81003F4EE7 /* ZYContactSyncDaoDelegate.h */,
 			);
 			name = Dao;
 			sourceTree = "<group>";
@@ -214,6 +224,7 @@
 				EDB3B798196245E1000206D4 /* ZYMenuService.m */,
 				83089C17196399E100B323C8 /* ZYContactSyncService.h */,
 				83089C18196399E100B323C8 /* ZYContactSyncService.m */,
+				8313A81819653BA4003F4EE7 /* ZYContactSyncServiceDelegate.h */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -237,6 +248,8 @@
 				ED5AF435195FC2C70076FD0B /* ZYNSMutableDictionary.m */,
 				8318363B1960F77C0098C82F /* NSString+NSStringExtension.h */,
 				8318363C1960F77C0098C82F /* NSString+NSStringExtension.m */,
+				8313A81919654CF0003F4EE7 /* NSDate+NSDateExtension.h */,
+				8313A81A19654CF0003F4EE7 /* NSDate+NSDateExtension.m */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -244,6 +257,7 @@
 		83203DD6195A630100AE3849 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				83BA106E1965542400B0D209 /* ZYJsonSerialization */,
 				831957A9196296AE00675C68 /* ZYCache */,
 				831E76621961672E00CE6938 /* ZYPinyin */,
 				ED5AF437195FF1C50076FD0B /* ZYHttpRequest */,
@@ -331,6 +345,16 @@
 				8359AF4D195981F100519EF7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83BA106E1965542400B0D209 /* ZYJsonSerialization */ = {
+			isa = PBXGroup;
+			children = (
+				83BA106F1965549400B0D209 /* ZYJsonSerialization.h */,
+				83BA10701965549400B0D209 /* ZYJsonSerialization.m */,
+				83BA1072196554BC00B0D209 /* ZYJsonSerializationProtocol.h */,
+			);
+			name = ZYJsonSerialization;
 			sourceTree = "<group>";
 		};
 		83EC5B47195D10B600A1610D /* ZYLoading */ = {
@@ -508,6 +532,7 @@
 				8359AF38195981F100519EF7 /* main.m in Sources */,
 				EDFC905C195D433800DC902A /* ZYMenuViewCell.m in Sources */,
 				EDB3B7961962455D000206D4 /* ZYMenuDao.m in Sources */,
+				8313A81B19654CF0003F4EE7 /* NSDate+NSDateExtension.m in Sources */,
 				83089C19196399E100B323C8 /* ZYContactSyncService.m in Sources */,
 				83A02D84195BFF1B0098FD58 /* ZYNoticeViewController.m in Sources */,
 				83089C1C196399F600B323C8 /* ZYContactSyncDao.m in Sources */,
@@ -522,6 +547,7 @@
 				ED5AF43E195FF4500076FD0B /* ZYContactInfo.m in Sources */,
 				ED5AF43B195FF2430076FD0B /* ZYContactPeople.m in Sources */,
 				83089C1F1963AD3E00B323C8 /* ZYContactMapping.m in Sources */,
+				83BA10711965549400B0D209 /* ZYJsonSerialization.m in Sources */,
 				83C982BA195AA9F9005E9905 /* ZYSignInViewController.m in Sources */,
 				8359AF3C195981F100519EF7 /* ZYAppDelegate.m in Sources */,
 				ED9A7908195A7FAF0016A739 /* ZYUserService.m in Sources */,

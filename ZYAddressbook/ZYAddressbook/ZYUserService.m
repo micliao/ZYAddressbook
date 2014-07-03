@@ -35,8 +35,8 @@
  */
 -(void)verifyUserBy:(NSString*)account password:(NSString*)password httpResponseDelagete:(id<ZYHttpResponseDelegate>)delegate {
     if (account.length == 0 || password.length == 0) {
-        if ([delegate respondsToSelector:@selector(httpRequestSuccess:)]) {
-            [delegate httpRequestFaild:@"账号密码不能为空"];
+        if ([delegate respondsToSelector:@selector(httpRequestFaild:err:)]) {
+            [delegate httpRequestFaild:nil err:@"账号密码不能为空"];
         }
     }
     else {

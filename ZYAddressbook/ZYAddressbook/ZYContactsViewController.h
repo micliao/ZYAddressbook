@@ -10,8 +10,10 @@
 #import "ZYNSMutableDictionary.h"
 #import "NSString+NSStringExtension.h"
 #import "ZYContactPeopleService.h"
+#import "ZYContactSyncService.h"
+#import "ZYContactSyncServiceDelegate.h"
 
-@interface ZYContactsViewController : UIViewController <UISearchDisplayDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface ZYContactsViewController : UIViewController <UISearchDisplayDelegate,UITableViewDataSource,UITableViewDelegate,ZYContactSyncServiceDelegate>
 {
     NSMutableArray *searchedContacts;
     ZYNSMutableDictionary *allContacts;

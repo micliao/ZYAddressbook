@@ -23,6 +23,9 @@
 {
     [super viewDidLoad];
     
+    ZYContactSyncService *syncService = [[ZYContactSyncService alloc]init];
+    [syncService syncContact:self];
+    
     ZYContactPeopleService *service = [[ZYContactPeopleService alloc]init];
     ZYNSMutableDictionary *contactPeople = [service getAllCachedContactPeoplesGroupByFirstLetter];
     if (contactPeople == nil || contactPeople.realDictionary == nil || contactPeople.realDictionary.count == 0) {
