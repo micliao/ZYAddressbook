@@ -12,6 +12,7 @@
 #import "ZYContactMapping.h"
 #import "ZYContactSyncDaoDelegate.h"
 #import "NSDate+NSDateExtension.h"
+#import "ZYJsonSerialization.h"
 
 /*
     @interface ZYContactSyncDao

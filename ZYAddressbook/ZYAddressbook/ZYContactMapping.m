@@ -30,4 +30,14 @@
     return self;
 }
 
+-(void)encodePropertiesValue:(NSMutableDictionary*)propertiesDictionary {
+    [propertiesDictionary setValue:[self.version UUIDString] forKey:@"version"];
+    [propertiesDictionary setValue:[self.versionDate toString] forKey:@"versionDate"];
+}
+
+-(void)decodePropertiesValue:(NSDictionary*)propertiesDictionary {
+    self.version = [[NSUUID alloc]initWithUUIDString:[propertiesDictionary valueForKey:@"version"]];
+    self.versionDate = [NSDate fromString:[propertiesDictionary valueForKey:@"versionDate"]];
+}
+
 @end

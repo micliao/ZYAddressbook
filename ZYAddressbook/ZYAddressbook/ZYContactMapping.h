@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZYJsonSerializationProtocol.h"
+#import "NSDate+NSDateExtension.h"
 
 enum ContactMappingVersionType {
     Add = 0,Delete,Update
 };
 
-@interface ZYContactMapping : NSObject<NSCoding>
+@interface ZYContactMapping : NSObject<NSCoding,ZYJsonSerializationProtocol>
 
 @property NSInteger phoneKey;
 @property NSInteger serverKey;

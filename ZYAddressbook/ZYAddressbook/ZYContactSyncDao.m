@@ -28,19 +28,11 @@
         map.versionType = Add;
         [contactMappings addObject:map];
     }
-    NSMutableArray *jsonContactMappings = [[NSMutableArray alloc]init];
-    for (ZYContactMapping *mapping in contactMappings) {
-        NSDictionary *dic = [mapping dictionaryWithValuesForKeys:[[NSArray alloc]initWithObjects:@"phoneKey",@"serverKey",@"versionType", nil]];
-        NSMutableDictionary *jsonDic = [[NSMutableDictionary alloc]initWithDictionary:dic];
-        [jsonDic setValue:[mapping.version UUIDString] forKey:@"version"];
-        [jsonDic setValue:[mapping.versionDate toString] forKey:@"versionDate"];
-        [jsonContactMappings addObject:jsonDic];
-    }
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonContactMappings options:NSJSONWritingPrettyPrinted error:nil];
-    NSString *json = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",json);
-    ZYHttpRequest *request = [[ZYHttpRequest alloc]initWithRequestUrl:@"http://192.168.1.1/" method:@"POST" respenseDelegate:self];
-    [request addParamaterFor:@"contactMappings" byValue:json];
+    NSString *json = [ZYJsonSerialization serialize:contactMappings error:nil];
+    //NSLog(@"%@",json);
+    NSMutableArray *returnjson = [ZYJsonSerialization deserialize:json targetType:[ZYContactMapping class] error:nil];
+    ZYHttpRequest *request = [[ZYHttpRequest alloc]initWithRequestUrl:@"http://192.168.13.67/home/octest" method:@"POST" respenseDelegate:self];
+    [request addParamaterFor:@"jsonParam" byValue:json];
     [request doHttpRequest];
     
 //    ZYNSMutableDictionary* contacts = [[[ZYContactPeopleDao alloc]init] getAllContactPeoples];

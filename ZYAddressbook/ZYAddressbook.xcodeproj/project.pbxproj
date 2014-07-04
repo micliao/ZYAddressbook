@@ -32,7 +32,7 @@
 		83A02D84195BFF1B0098FD58 /* ZYNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A02D82195BFF1B0098FD58 /* ZYNoticeViewController.m */; };
 		83A02D85195BFF1B0098FD58 /* ZYNoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83A02D83195BFF1B0098FD58 /* ZYNoticeView.xib */; };
 		83A9E5EC19624B8D0081A272 /* ChineseToPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A9E5EB19624B8D0081A272 /* ChineseToPinyin.m */; };
-		83BA10711965549400B0D209 /* ZYJsonSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA10701965549400B0D209 /* ZYJsonSerialization.m */; };
+		83BA10711965549400B0D209 /* ZYJsonSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA10701965549400B0D209 /* ZYJsonSerialization.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		83C982BA195AA9F9005E9905 /* ZYSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C982B9195AA9F9005E9905 /* ZYSignInViewController.m */; };
 		83F69ECF195EBB5400B38519 /* ZYContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F69ECE195EBB5400B38519 /* ZYContactsViewController.m */; };
 		ED5AF436195FC2C70076FD0B /* ZYNSMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5AF435195FC2C70076FD0B /* ZYNSMutableDictionary.m */; };

@@ -10,8 +10,6 @@
 
 @protocol ZYJsonSerializationProtocol <NSObject>
 
-@property NSArray *nomalProperties;
-
 -(void)encodePropertiesValue:(NSMutableDictionary*)propertiesDictionary;
 -(void)decodePropertiesValue:(NSDictionary*)propertiesDictionary;
 

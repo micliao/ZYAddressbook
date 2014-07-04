@@ -17,7 +17,7 @@
 }
 
 -(void)syncContactSuccess:(id)delegate syncResult:(NSData *)data {
-    [self->responseDelegate syncContactSuccess:self->responseDelegate syncResult:data];
+    //[self->responseDelegate syncContactSuccess:self->responseDelegate syncResult:data];
 }
 
 -(void)syncContactFaild:(id)delegate err:(NSString *)errMsg {
