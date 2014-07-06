@@ -17,29 +17,22 @@
  */
 -(void)syncContact:(id<ZYContactSyncDaoDelegate>)delegate {
     self->responseDelegate = delegate;
-    //NSMutableArray *contactMappings = [[[ZYArchiveCache alloc]init] readCache:[ZYArchiveCache contactMappingCacheFileName]];
-    NSMutableArray *contactMappings = [[NSMutableArray alloc]init];
-    for (int i=0; i<10; i++) {
-        ZYContactMapping *map = [[ZYContactMapping alloc]init];
-        map.phoneKey = i;
-        map.serverKey = i;
-        map.version = [NSUUID UUID];
-        map.versionDate = [NSDate date];
-        map.versionType = Add;
-        [contactMappings addObject:map];
-    }
+    [self->responseDelegate setSyncStep:SubmitContactMappings];
+    NSMutableArray *contactMappings = [[[ZYArchiveCache alloc]init] readCache:[ZYArchiveCache contactMappingCacheFileName]];
+//    NSMutableArray *contactMappings = [[NSMutableArray alloc]init];
+//    for (int i=0; i<10; i++) {
+//        ZYContactMapping *map = [[ZYContactMapping alloc]init];
+//        map.phoneKey = i;
+//        map.serverKey = i;
+//        map.version = [NSUUID UUID];
+//        map.versionDate = [NSDate date];
+//        map.versionType = Add;
+//        [contactMappings addObject:map];
+//    }
     NSString *json = [ZYJsonSerialization serialize:contactMappings error:nil];
-    //NSLog(@"%@",json);
-    NSMutableArray *returnjson = [ZYJsonSerialization deserialize:json targetType:[ZYContactMapping class] error:nil];
     ZYHttpRequest *request = [[ZYHttpRequest alloc]initWithRequestUrl:@"http://192.168.13.67/home/octest" method:@"POST" respenseDelegate:self];
     [request addParamaterFor:@"jsonParam" byValue:json];
     [request doHttpRequest];
-    
-//    ZYNSMutableDictionary* contacts = [[[ZYContactPeopleDao alloc]init] getAllContactPeoples];
-//    NSMutableArray *contactPeoples = nil;
-//    if ([contacts keyForIndex:0]) {
-//        contactPeoples = contacts[0];
-//    }
 }
 
 /*!
@@ -49,11 +42,10 @@
  @param userData 用户数据
  */
 - (void)httpRequestSuccess:(id)delegate responseData:(NSData *)responseData {
-    if (self->responseDelegate != nil ) {
-        if ([self->responseDelegate respondsToSelector:@selector(syncContactSuccess:syncResult:)]) {
-            [self->responseDelegate performSelector:@selector(syncContactSuccess:syncResult:) withObject:nil withObject:responseData];
-        }
+    if (self->responseDelegate != nil && [self->responseDelegate respondsToSelector:@selector(syncContactSuccess:syncResult:)]) {
+        [self->responseDelegate syncContactSuccess:self->responseDelegate syncResult:responseData];
     }
+    
 }
 
 /*!
@@ -63,10 +55,8 @@
  @param userData 用户数据
  */
 -(void)httpRequestFaild:(id)delegate err:(NSString *)errorMsg {
-    if (self->responseDelegate != nil) {
-        if ([self->responseDelegate respondsToSelector:@selector(syncContactFaild:err:)]) {
-            [self->responseDelegate performSelector:@selector(syncContactFaild:err:) withObject:nil withObject:errorMsg];
-        }
+    if (self->responseDelegate != nil && [self->responseDelegate respondsToSelector:@selector(syncContactFaild:err:)]) {
+        [self->responseDelegate syncContactFaild:self->responseDelegate err:errorMsg];
     }
 }
 

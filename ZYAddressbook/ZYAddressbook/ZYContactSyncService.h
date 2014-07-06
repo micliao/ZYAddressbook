@@ -13,6 +13,7 @@
 @interface ZYContactSyncService : NSObject<ZYContactSyncDaoDelegate>
 {
     id<ZYContactSyncServiceDelegate> responseDelegate;
+    enum SyncSteps contactSyncStep;
 }
 
 -(void)syncContact:(id<ZYContactSyncServiceDelegate>)delegate;

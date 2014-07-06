@@ -14,6 +14,13 @@
 #import "NSDate+NSDateExtension.h"
 #import "ZYJsonSerialization.h"
 
+/*!
+ *同步数据访问类型
+ */
+enum SyncSteps {
+    SubmitContactMappings = 0,SubmitDatas
+};
+
 /*
     @interface ZYContactSyncDao
     同步通讯录方法
@@ -26,3 +33,4 @@
 -(void)syncContact:(id<ZYContactSyncDaoDelegate>)delegate;
 
 @end
+

@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZYContactSyncDao.h"
 
 @protocol ZYContactSyncDaoDelegate <NSObject>
+
+@property enum SyncSteps  syncStep;
 
 @optional
 -(void)syncContactSuccess:(id)delegate syncResult:(NSData *)data;
