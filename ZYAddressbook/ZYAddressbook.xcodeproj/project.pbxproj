@@ -31,10 +31,16 @@
 		8359AF51195981F100519EF7 /* ZYAddressbookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8359AF50195981F100519EF7 /* ZYAddressbookTests.m */; };
 		83A02D84195BFF1B0098FD58 /* ZYNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A02D82195BFF1B0098FD58 /* ZYNoticeViewController.m */; };
 		83A02D85195BFF1B0098FD58 /* ZYNoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83A02D83195BFF1B0098FD58 /* ZYNoticeView.xib */; };
+		83A4DF4C19726EEA00F228E6 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A4DF4B19726EEA00F228E6 /* AddressBookUI.framework */; };
 		83A9E5EC19624B8D0081A272 /* ChineseToPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A9E5EB19624B8D0081A272 /* ChineseToPinyin.m */; };
 		83BA10711965549400B0D209 /* ZYJsonSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA10701965549400B0D209 /* ZYJsonSerialization.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		83C3C4A71972A89D0015E248 /* ZYSyncSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C3C4A61972A89D0015E248 /* ZYSyncSettingViewController.m */; };
+		83C3C4AA1972AAD20015E248 /* ZYMeSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C3C4A91972AAD20015E248 /* ZYMeSettingViewController.m */; };
+		83C3C4AD1972C4380015E248 /* ZYNameListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C3C4AC1972C4380015E248 /* ZYNameListViewController.m */; };
+		83C3C4B01972C9420015E248 /* ZYNameListAddMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C3C4AF1972C9420015E248 /* ZYNameListAddMemberViewController.m */; };
 		83C982BA195AA9F9005E9905 /* ZYSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C982B9195AA9F9005E9905 /* ZYSignInViewController.m */; };
-		83F69ECF195EBB5400B38519 /* ZYContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F69ECE195EBB5400B38519 /* ZYContactsViewController.m */; };
+		83FB65C519722F6200B3C0C9 /* ZYContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FB65C419722F6200B3C0C9 /* ZYContactTableViewCell.m */; };
+		83FB65C8197237BE00B3C0C9 /* ZYContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FB65C7197237BE00B3C0C9 /* ZYContactsTableViewController.m */; };
 		ED5AF436195FC2C70076FD0B /* ZYNSMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5AF435195FC2C70076FD0B /* ZYNSMutableDictionary.m */; };
 		ED5AF43B195FF2430076FD0B /* ZYContactPeople.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5AF43A195FF2430076FD0B /* ZYContactPeople.m */; };
 		ED5AF43E195FF4500076FD0B /* ZYContactInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5AF43D195FF4500076FD0B /* ZYContactInfo.m */; };
@@ -87,7 +93,7 @@
 		83530E46195BEB3C004966A7 /* ZYLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYLoadingViewController.h; sourceTree = "<group>"; };
 		83530E47195BEB3C004966A7 /* ZYLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYLoadingViewController.m; sourceTree = "<group>"; };
 		83530E48195BEB3C004966A7 /* ZYLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYLoadingView.xib; sourceTree = "<group>"; };
-		8359AF28195981F100519EF7 /* ZYAddressbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYAddressbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8359AF28195981F100519EF7 /* 智云通讯录.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "智云通讯录.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8359AF2B195981F100519EF7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8359AF2F195981F100519EF7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8359AF33195981F100519EF7 /* ZYAddressbook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZYAddressbook-Info.plist"; sourceTree = "<group>"; };
@@ -105,15 +111,27 @@
 		83A02D81195BFF1B0098FD58 /* ZYNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYNoticeViewController.h; sourceTree = "<group>"; };
 		83A02D82195BFF1B0098FD58 /* ZYNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYNoticeViewController.m; sourceTree = "<group>"; };
 		83A02D83195BFF1B0098FD58 /* ZYNoticeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYNoticeView.xib; sourceTree = "<group>"; };
+		83A4DF4B19726EEA00F228E6 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		83A9E5EA19624B8D0081A272 /* ChineseToPinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyin.h; sourceTree = "<group>"; };
 		83A9E5EB19624B8D0081A272 /* ChineseToPinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyin.m; sourceTree = "<group>"; };
 		83BA106F1965549400B0D209 /* ZYJsonSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYJsonSerialization.h; sourceTree = "<group>"; };
 		83BA10701965549400B0D209 /* ZYJsonSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYJsonSerialization.m; sourceTree = "<group>"; };
 		83BA1072196554BC00B0D209 /* ZYJsonSerializationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYJsonSerializationProtocol.h; sourceTree = "<group>"; };
+		83C3C4A51972A89D0015E248 /* ZYSyncSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSyncSettingViewController.h; sourceTree = "<group>"; };
+		83C3C4A61972A89D0015E248 /* ZYSyncSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSyncSettingViewController.m; sourceTree = "<group>"; };
+		83C3C4A81972AAD20015E248 /* ZYMeSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYMeSettingViewController.h; sourceTree = "<group>"; };
+		83C3C4A91972AAD20015E248 /* ZYMeSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYMeSettingViewController.m; sourceTree = "<group>"; };
+		83C3C4AB1972C4380015E248 /* ZYNameListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYNameListViewController.h; sourceTree = "<group>"; };
+		83C3C4AC1972C4380015E248 /* ZYNameListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYNameListViewController.m; sourceTree = "<group>"; };
+		83C3C4AE1972C9420015E248 /* ZYNameListAddMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYNameListAddMemberViewController.h; sourceTree = "<group>"; };
+		83C3C4AF1972C9420015E248 /* ZYNameListAddMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYNameListAddMemberViewController.m; sourceTree = "<group>"; };
 		83C982B8195AA9F9005E9905 /* ZYSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSignInViewController.h; sourceTree = "<group>"; };
 		83C982B9195AA9F9005E9905 /* ZYSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSignInViewController.m; sourceTree = "<group>"; };
-		83F69ECD195EBB5400B38519 /* ZYContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYContactsViewController.h; sourceTree = "<group>"; };
-		83F69ECE195EBB5400B38519 /* ZYContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYContactsViewController.m; sourceTree = "<group>"; };
+		83FB65C21972216700B3C0C9 /* ZYRGBColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYRGBColor.h; sourceTree = "<group>"; };
+		83FB65C319722F6200B3C0C9 /* ZYContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYContactTableViewCell.h; sourceTree = "<group>"; };
+		83FB65C419722F6200B3C0C9 /* ZYContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYContactTableViewCell.m; sourceTree = "<group>"; };
+		83FB65C6197237BE00B3C0C9 /* ZYContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYContactsTableViewController.h; sourceTree = "<group>"; };
+		83FB65C7197237BE00B3C0C9 /* ZYContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYContactsTableViewController.m; sourceTree = "<group>"; };
 		ED5AF434195FC2C70076FD0B /* ZYNSMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYNSMutableDictionary.h; sourceTree = "<group>"; };
 		ED5AF435195FC2C70076FD0B /* ZYNSMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYNSMutableDictionary.m; sourceTree = "<group>"; };
 		ED5AF439195FF2430076FD0B /* ZYContactPeople.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYContactPeople.h; sourceTree = "<group>"; };
@@ -150,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83A4DF4C19726EEA00F228E6 /* AddressBookUI.framework in Frameworks */,
 				ED5AF440195FFFA40076FD0B /* AddressBook.framework in Frameworks */,
 				EDFC905E195D437A00DC902A /* QuartzCore.framework in Frameworks */,
 				8359AF30195981F100519EF7 /* UIKit.framework in Frameworks */,
@@ -263,6 +282,7 @@
 				ED5AF437195FF1C50076FD0B /* ZYHttpRequest */,
 				83EC5B48195D10D100A1610D /* ZYNotice */,
 				83EC5B47195D10B600A1610D /* ZYLoading */,
+				83FB65C21972216700B3C0C9 /* ZYRGBColor.h */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -280,7 +300,7 @@
 		8359AF29195981F100519EF7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8359AF28195981F100519EF7 /* ZYAddressbook.app */,
+				8359AF28195981F100519EF7 /* 智云通讯录.app */,
 				8359AF43195981F100519EF7 /* ZYAddressbookTests.xctest */,
 			);
 			name = Products;
@@ -289,6 +309,7 @@
 		8359AF2A195981F100519EF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				83A4DF4B19726EEA00F228E6 /* AddressBookUI.framework */,
 				ED5AF43F195FFFA40076FD0B /* AddressBook.framework */,
 				EDFC905D195D437A00DC902A /* QuartzCore.framework */,
 				8359AF2B195981F100519EF7 /* Foundation.framework */,
@@ -409,10 +430,20 @@
 				ED828BF0195D11290010C301 /* ZYMenuViewController.m */,
 				EDFC905A195D433800DC902A /* ZYMenuViewCell.h */,
 				EDFC905B195D433800DC902A /* ZYMenuViewCell.m */,
-				83F69ECD195EBB5400B38519 /* ZYContactsViewController.h */,
-				83F69ECE195EBB5400B38519 /* ZYContactsViewController.m */,
 				EDB3B78E19616109000206D4 /* ZYMenuViewLayout.h */,
 				EDB3B78F19616109000206D4 /* ZYMenuViewLayout.m */,
+				83FB65C319722F6200B3C0C9 /* ZYContactTableViewCell.h */,
+				83FB65C419722F6200B3C0C9 /* ZYContactTableViewCell.m */,
+				83FB65C6197237BE00B3C0C9 /* ZYContactsTableViewController.h */,
+				83FB65C7197237BE00B3C0C9 /* ZYContactsTableViewController.m */,
+				83C3C4A51972A89D0015E248 /* ZYSyncSettingViewController.h */,
+				83C3C4A61972A89D0015E248 /* ZYSyncSettingViewController.m */,
+				83C3C4A81972AAD20015E248 /* ZYMeSettingViewController.h */,
+				83C3C4A91972AAD20015E248 /* ZYMeSettingViewController.m */,
+				83C3C4AB1972C4380015E248 /* ZYNameListViewController.h */,
+				83C3C4AC1972C4380015E248 /* ZYNameListViewController.m */,
+				83C3C4AE1972C9420015E248 /* ZYNameListAddMemberViewController.h */,
+				83C3C4AF1972C9420015E248 /* ZYNameListAddMemberViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -441,7 +472,7 @@
 			);
 			name = ZYAddressbook;
 			productName = ZYAddressbook;
-			productReference = 8359AF28195981F100519EF7 /* ZYAddressbook.app */;
+			productReference = 8359AF28195981F100519EF7 /* 智云通讯录.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8359AF42195981F100519EF7 /* ZYAddressbookTests */ = {
@@ -472,6 +503,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = zy;
 				TargetAttributes = {
+					8359AF27195981F100519EF7 = {
+						DevelopmentTeam = 4E42RTMQ75;
+					};
 					8359AF42195981F100519EF7 = {
 						TestTargetID = 8359AF27195981F100519EF7;
 					};
@@ -530,9 +564,12 @@
 				83203DD5195A61AB00AE3849 /* ZYHttpRequest.m in Sources */,
 				831957AC1962970800675C68 /* ZYArchiveCache.m in Sources */,
 				8359AF38195981F100519EF7 /* main.m in Sources */,
+				83FB65C8197237BE00B3C0C9 /* ZYContactsTableViewController.m in Sources */,
 				EDFC905C195D433800DC902A /* ZYMenuViewCell.m in Sources */,
 				EDB3B7961962455D000206D4 /* ZYMenuDao.m in Sources */,
+				83FB65C519722F6200B3C0C9 /* ZYContactTableViewCell.m in Sources */,
 				8313A81B19654CF0003F4EE7 /* NSDate+NSDateExtension.m in Sources */,
+				83C3C4A71972A89D0015E248 /* ZYSyncSettingViewController.m in Sources */,
 				83089C19196399E100B323C8 /* ZYContactSyncService.m in Sources */,
 				83A02D84195BFF1B0098FD58 /* ZYNoticeViewController.m in Sources */,
 				83089C1C196399F600B323C8 /* ZYContactSyncDao.m in Sources */,
@@ -541,10 +578,12 @@
 				ED9A7905195A7CD70016A739 /* ZYUser.m in Sources */,
 				ED828BF1195D11290010C301 /* ZYMenuViewController.m in Sources */,
 				ED5AF436195FC2C70076FD0B /* ZYNSMutableDictionary.m in Sources */,
-				83F69ECF195EBB5400B38519 /* ZYContactsViewController.m in Sources */,
 				ED9A7902195A7C330016A739 /* ZYUserDao.m in Sources */,
 				83530E49195BEB3C004966A7 /* ZYLoadingViewController.m in Sources */,
 				ED5AF43E195FF4500076FD0B /* ZYContactInfo.m in Sources */,
+				83C3C4B01972C9420015E248 /* ZYNameListAddMemberViewController.m in Sources */,
+				83C3C4AA1972AAD20015E248 /* ZYMeSettingViewController.m in Sources */,
+				83C3C4AD1972C4380015E248 /* ZYNameListViewController.m in Sources */,
 				ED5AF43B195FF2430076FD0B /* ZYContactPeople.m in Sources */,
 				83089C1F1963AD3E00B323C8 /* ZYContactMapping.m in Sources */,
 				83BA10711965549400B0D209 /* ZYJsonSerialization.m in Sources */,
@@ -668,6 +707,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/element/Downloads/Baidu-Frontia-iOS-2/libs",
@@ -676,7 +717,8 @@
 				GCC_PREFIX_HEADER = "ZYAddressbook/ZYAddressbook-Prefix.pch";
 				INFOPLIST_FILE = "ZYAddressbook/ZYAddressbook-Info.plist";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "智云通讯录";
+				PROVISIONING_PROFILE = "D24CD94E-C3D8-43BB-A146-E1EFDB9E0B29";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -686,6 +728,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/element/Downloads/Baidu-Frontia-iOS-2/libs",
@@ -693,7 +737,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZYAddressbook/ZYAddressbook-Prefix.pch";
 				INFOPLIST_FILE = "ZYAddressbook/ZYAddressbook-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "智云通讯录";
+				PROVISIONING_PROFILE = "D24CD94E-C3D8-43BB-A146-E1EFDB9E0B29";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -15,6 +15,7 @@
 
 -(ZYNSMutableDictionary*)getAllContactPeoples;
 -(ZYNSMutableDictionary*)getAllContactPeoplesGroupByFirstLetter;
+-(ZYNSMutableDictionary*)getAllContactPeoplesGroupByFirstLetterExcept:(NSArray*)exceptPeople;
 -(ZYNSMutableDictionary*)getAllCachedContactPeoplesGroupByFirstLetter;
 -(void)setContactPeoplesCache:(ZYNSMutableDictionary*)contactPeoples;
 

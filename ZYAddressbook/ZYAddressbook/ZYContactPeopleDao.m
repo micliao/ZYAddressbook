@@ -27,12 +27,11 @@
 }
 
 /*!
- @method getAllContactPeoples
- @abstract 获取所有通讯录成员
+ @method readAddressBook
+ @abstract 读取通讯录通讯录成员
  @result 所有通讯录成员
  */
--(ZYNSMutableDictionary*)getAllContactPeoples {
-    NSMutableArray *contacts = [[NSMutableArray alloc]init];
+-(NSArray*)readAddressBook {
     ABAddressBookRef tmpAddressBook = nil;
     __block BOOL accessGranted = YES;
     
@@ -50,17 +49,74 @@
     else {
         tmpAddressBook = ABAddressBookCreate();
     }
+    return [[NSArray alloc]initWithObjects:[[NSNumber alloc] initWithBool:accessGranted], ABAddressBookCopyArrayOfAllPeople(tmpAddressBook),nil];
+}
+
+/*
+ @method convertAddressbookRecord:
+ @abstract 将通讯录对象转换为自定义对象
+ @param people 通讯录对象
+ @result 通讯录成员自定义对象
+ */
+-(ZYContactPeople*)convertAddressbookRecord:(ABRecordRef)people {
+    ZYContactPeople *contact = [[ZYContactPeople alloc]init];
+    contact.firstName = (__bridge NSString *)(ABRecordCopyValue(people, kABPersonFirstNameProperty));
+    contact.middleName = (__bridge NSString *)(ABRecordCopyValue(people, kABPersonMiddleNameProperty));
+    contact.lastName = (__bridge NSString *)(ABRecordCopyValue(people, kABPersonLastNameProperty));
+    contact.phoneKey = (NSInteger)ABRecordGetRecordID(people);
+    contact.lastestDateTime = (__bridge NSDate*)ABRecordCopyValue(people, kABPersonModificationDateProperty);
+    return contact;
+}
+
+/*!
+ @method getAllContactPeoples
+ @abstract 获取所有通讯录成员
+ @result 所有通讯录成员
+ */
+-(ZYNSMutableDictionary*)getAllContactPeoples {
+    NSMutableArray *contacts = [[NSMutableArray alloc]init];
+    NSArray *address = [self readAddressBook];
+    BOOL accessGranted = [address[0] boolValue];
+    NSArray* addressBooks = address[1];
     
-    NSArray* addressBooks = (__bridge NSArray*)ABAddressBookCopyArrayOfAllPeople(tmpAddressBook);
     if (addressBooks != nil && [addressBooks count] > 0){
         for(NSObject *people in addressBooks) {
-            ZYContactPeople *contact = [[ZYContactPeople alloc]init];
-            contact.firstName = (__bridge NSString *)(ABRecordCopyValue((__bridge ABRecordRef)(people), kABPersonFirstNameProperty));
-            contact.middleName = (__bridge NSString *)(ABRecordCopyValue((__bridge ABRecordRef)(people), kABPersonMiddleNameProperty));
-            contact.lastName = (__bridge NSString *)(ABRecordCopyValue((__bridge ABRecordRef)(people), kABPersonLastNameProperty));
-            contact.phoneKey = (NSInteger)ABRecordGetRecordID((__bridge ABRecordRef)(people));
-            contact.lastestDateTime = (__bridge NSDate*)ABRecordCopyValue((__bridge ABRecordRef)(people), kABPersonModificationDateProperty);
+            ZYContactPeople *contact = [self convertAddressbookRecord:(__bridge ABRecordRef)(people)];
             [contacts addObject:contact];
+        }
+    }
+    
+    return [[ZYNSMutableDictionary alloc] initWithIndexedObjects:[[NSArray alloc]initWithObjects:contacts, nil] forKeys:[[NSArray alloc]initWithObjects:[[NSNumber alloc]initWithBool:accessGranted], nil]];
+}
+
+/*!
+ @method getAllContactPeoplesExcept:
+ @abstract 获取排除成员外的所有通讯录成员
+ @param exceptPhonekeys 排除成员健值
+ @result 所有通讯录成员
+ */
+-(ZYNSMutableDictionary*)getAllContactPeoplesExcept:(NSArray*)exceptPhonekeys {
+    NSMutableArray *contacts = [[NSMutableArray alloc]init];
+    NSArray *address = [self readAddressBook];
+    BOOL accessGranted = [address[0] boolValue];
+    NSArray* addressBooks = address[1];
+    
+    if (addressBooks != nil && [addressBooks count] > 0){
+        for(NSObject *people in addressBooks) {
+            NSInteger phoneKey = (NSInteger)ABRecordGetRecordID((__bridge ABRecordRef)(people));
+            BOOL isExcept = NO;
+            if (exceptPhonekeys != nil && [exceptPhonekeys count] > 0) {
+                for (NSNumber *key in exceptPhonekeys) {
+                    if ([key integerValue] == phoneKey) {
+                        isExcept = YES;
+                        break;
+                    }
+                }
+            }
+            if (!isExcept) {
+                ZYContactPeople *contact = [self convertAddressbookRecord:(__bridge ABRecordRef)(people)];
+                [contacts addObject:contact];
+            }
         }
     }
     

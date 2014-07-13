@@ -34,7 +34,15 @@
     @result ZYNSMutableDictionary 键为是否获得用户批准访问通讯录 值为通讯录成员数组
  */
 -(ZYNSMutableDictionary*)getAllContactPeoples {
-    return [[[ZYContactPeopleDao alloc]init] getAllContactPeoples];
+    ZYNSMutableDictionary *result = [[[ZYContactPeopleDao alloc]init] getAllContactPeoples];
+    if ([result keyForIndex:0]) {
+        return [[ZYNSMutableDictionary alloc]initWithIndexedObjects:[[NSArray alloc] initWithObjects:[result[0] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            ZYContactPeople *peo1 = (ZYContactPeople*)obj1;
+            ZYContactPeople *peo2 = (ZYContactPeople*)obj2;
+            return [[peo1 nameLetters] compare:[peo2 nameLetters]];
+        }],nil] forKeys:[[NSArray alloc]initWithObjects:[result keyForIndex:0], nil]];
+    }
+    return result;
 }
 
 /*!
@@ -53,6 +61,33 @@
 }
 
 /*!
+ @method getAllContactPeoplesGroupByFirstLetterExcept:
+ @abstract 获取排除人员外的所有通讯录成员 按姓氏首字母分组
+ @param exceptPeople 排除人员
+ @result ZYNSMutableDictionary 键为是否获得用户批准访问通讯录 值为已分组通讯录成员字典
+ */
+-(ZYNSMutableDictionary*)getAllContactPeoplesGroupByFirstLetterExcept:(NSArray*)exceptPeople {
+    NSMutableArray *array = nil;
+    if (exceptPeople != nil && [exceptPeople count] > 0) {
+        array = [[NSMutableArray alloc]init];
+        for (ZYContactPeople *p in exceptPeople) {
+            [array addObject: [[NSNumber alloc] initWithInteger: p.phoneKey]];
+        }
+    }
+
+    ZYNSMutableDictionary *result = [[[ZYContactPeopleDao alloc]init] getAllContactPeoplesExcept:array];
+    if ([result keyForIndex:0]) {
+        ZYNSMutableDictionary* contacts = [self groupContactPeoples:[result[0] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            ZYContactPeople *peo1 = (ZYContactPeople*)obj1;
+            ZYContactPeople *peo2 = (ZYContactPeople*)obj2;
+            return [[peo1 nameLetters] compare:[peo2 nameLetters]];
+        }]];
+        return [[ZYNSMutableDictionary alloc]initWithIndexedObjects:[[NSArray alloc] initWithObjects:contacts,nil] forKeys:[[NSArray alloc]initWithObjects:[result keyForIndex:0], nil]];
+    }
+    return result;
+}
+
+/*!
  @method getAllCachedContactPeoplesGroupByFirstLetter
  @abstract 获取所有缓存通讯录成员 按姓氏首字母分组
  @result ZYNSMutableDictionary 已分组通讯录成员字典
@@ -62,7 +97,11 @@
     if (contacts == nil) {
         return nil;
     }
-    return [self groupContactPeoples:contacts];
+    return [self groupContactPeoples:[contacts sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        ZYContactPeople *peo1 = (ZYContactPeople*)obj1;
+        ZYContactPeople *peo2 = (ZYContactPeople*)obj2;
+        return [[peo1 nameLetters] compare:[peo2 nameLetters]];
+    }]];
 }
 
 /*
@@ -88,13 +127,9 @@
  @abstract 将通讯录成员按姓氏首字母分组
  @result ZYNSMutableDictionary 已分组通讯录成员字典
  */
--(ZYNSMutableDictionary*)groupContactPeoples:(NSMutableArray*)contactPeoples {
+-(ZYNSMutableDictionary*)groupContactPeoples:(NSArray*)contactPeoples {
     ZYNSMutableDictionary *groupContacts = [[ZYNSMutableDictionary alloc]init];
-    for (ZYContactPeople *people in [contactPeoples sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        ZYContactPeople *peo1 = (ZYContactPeople*)obj1;
-        ZYContactPeople *peo2 = (ZYContactPeople*)obj2;
-        return [[peo1 nameLetters] compare:[peo2 nameLetters]];
-    }]) {
+    for (ZYContactPeople *people in contactPeoples) {
         NSString *firstLetter = [[people nameLetters] substringWithRange:NSMakeRange(0,1)];
         if ([groupContacts.realDictionary.allKeys containsObject:firstLetter]) {
             [groupContacts.realDictionary[firstLetter] addObject:people];

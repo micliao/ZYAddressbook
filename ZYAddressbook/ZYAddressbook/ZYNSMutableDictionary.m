@@ -116,9 +116,9 @@
 }
 
 /*!
- @method removeObjectForIndex:
- @abstract 移除指定数字索引
- @param index 键
+ *@method removeObjectForIndex:
+ *@abstract 移除指定数字索引
+ *@param index 键
  */
 -(void)removeObjectForIndex:(int)index {
     if (index < [self->indexArray count] && index >= 0) {

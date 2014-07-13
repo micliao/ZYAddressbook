@@ -16,6 +16,8 @@
 
 -(id)initWithParentView:(UIView*)view;
 -(void)show:(NSString*)text;
--(void)show:(NSString*)text showTime:(int)showTime;
+-(void)show:(NSString*)text showTime:(int)showTime showBottomOffset:(double)offset showAni:(BOOL)showAni;
 -(void)hideNow;
++(void)showNotice:(UIView*)view showTime:(int)showTime showBottomOffset:(double)offset noticeText:(NSString*)text;
++(void)showNotice:(UIView*)view noticeText:(NSString*)text;
 @end

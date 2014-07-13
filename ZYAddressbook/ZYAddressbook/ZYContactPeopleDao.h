@@ -15,6 +15,7 @@
 @interface ZYContactPeopleDao : NSObject<ZYDaoDelegate>
 
 -(ZYNSMutableDictionary*)getAllContactPeoples;
+-(ZYNSMutableDictionary*)getAllContactPeoplesExcept:(NSArray*)exceptPhonekeys;
 -(NSMutableArray*)getAllCachedContactPeoples;
 -(void)setContactPeoplesCache:(NSMutableArray*)contactPeoples;
 @end

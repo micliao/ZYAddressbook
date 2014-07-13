@@ -12,9 +12,10 @@
 {
     UIView *parentView;
     UILabel *lbNoticeText;
-    NSString *noticeText;
     CGRect noticeSize;
     NSTimer *closeTimer;
+    double bottomOffset;
+    BOOL isNeedShowAnimation;
 }
 @end
 
@@ -32,8 +33,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.layer.masksToBounds = YES;
-    self.view.layer.cornerRadius = 8.0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,66 +63,68 @@
  @param text 提示文本
  */
 -(void)show:(NSString*)text {
-    [self show:text showTime:3];
+    [self show:text showTime:3 showBottomOffset:0 showAni:YES];
 }
 
 /*!
- @method show:showTime:
- @abstract 显示提示，在特定时间后消失
+ @method show:showTime:showBottomOffset:
+ @abstract 在指定Y坐标偏移量显示提示，在特定时间后消失
  @param text 提示文本
  @param showTime 显示时间
+ @param showBottomOffset y坐标偏移量
+ @param showAni 是否显示“显示动画”
  */
--(void)show:(NSString*)text showTime:(int)showTime {
+-(void)show:(NSString*)text showTime:(int)showTime showBottomOffset:(double)offset showAni:(BOOL)showAni{
     if (self->closeTimer != nil) {
         [self->closeTimer invalidate];
         self->closeTimer = nil;
     }
-    self->noticeText = text;
-    [self beforeShow];
-    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-        [self.view setHidden:NO];
+    self->bottomOffset = offset;
+    [self beforeShow:text];
+    if (showAni) {
+        [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+            self.view.alpha = 1;
+            [self.view setFrame:self->noticeSize];
+        } completion:^(BOOL finished) {
+            self->closeTimer = [NSTimer scheduledTimerWithTimeInterval:showTime target:self selector:@selector(hide) userInfo:nil repeats:NO];
+        }];
+    }
+    else {
+        self.view.alpha = 1;
         [self.view setFrame:self->noticeSize];
-        [self->lbNoticeText setHidden:NO];
-    } completion:^(BOOL finished) {
         self->closeTimer = [NSTimer scheduledTimerWithTimeInterval:showTime target:self selector:@selector(hide) userInfo:nil repeats:NO];
-    }];
+    }
 }
 
--(void)beforeShow {
-    if (self->lbNoticeText == nil) {
-        self->lbNoticeText = [[UILabel alloc]initWithFrame:CGRectMake(2, 2, 215, 40)];
-        [self->lbNoticeText setFont:[UIFont fontWithName:@"Helvetica Bold" size:16.0]];
-        [self->lbNoticeText setBackgroundColor:[UIColor clearColor]];
-        [self->lbNoticeText setTextColor:[UIColor whiteColor]];
-        [self->lbNoticeText setNumberOfLines:0];
-        [self.view addSubview:self->lbNoticeText];
-    }
+-(void)beforeShow:(NSString*)text {
+    self->lbNoticeText = [[UILabel alloc]initWithFrame:CGRectMake(2, 2, 215, 40)];
+    [self->lbNoticeText setFont:[UIFont fontWithName:@"Helvetica Bold" size:16.0]];
+    [self->lbNoticeText setBackgroundColor:[UIColor clearColor]];
+    [self->lbNoticeText setTextColor:[UIColor whiteColor]];
+    [self->lbNoticeText setNumberOfLines:0];
+    [self.view addSubview:self->lbNoticeText];
+    [self->lbNoticeText setText:text];
     
-    if (![self->lbNoticeText.text isEqualToString:self->noticeText]) {
-        [self->lbNoticeText setHidden:YES];
-        [self->lbNoticeText setText:self->noticeText];
-        NSMutableDictionary *attr = [[NSMutableDictionary alloc] init];
-        [attr setValue:self->lbNoticeText.font forKey:NSFontAttributeName];
-        CGSize size = [self->noticeText boundingRectWithSize:CGSizeMake(215, 500) options: NSStringDrawingUsesLineFragmentOrigin attributes: attr context: nil].size;
-        CGFloat width = size.width + 20;
-        CGFloat height = size.height + 20 > 40 ? size.height + 20 : 40;
-        CGFloat x = self->parentView.center.x - width/2;
-        CGFloat y = [UIScreen mainScreen].applicationFrame.size.height - 20 - height;
-        self.view.frame = CGRectMake(x + width/2 , y +height/2 , 1 , 1);
-        self->noticeSize = CGRectMake(x,y,width, height);
-        [self->lbNoticeText setFrame:CGRectMake(5, 5, size.width, size.height)];
-        self->lbNoticeText.center = CGPointMake(width/2, height/2);
-    }
+    NSMutableDictionary *attr = [[NSMutableDictionary alloc] init];
+    [attr setValue:self->lbNoticeText.font forKey:NSFontAttributeName];
+    CGSize size = [text boundingRectWithSize:CGSizeMake(215, 500) options: NSStringDrawingUsesLineFragmentOrigin attributes: attr context: nil].size;
+    CGFloat width = size.width + 10;
+    CGFloat height = size.height + 10;
+    CGFloat x = self->parentView.center.x - width/2;
+    CGFloat y = [UIScreen mainScreen].applicationFrame.size.height - 20 - height - self->bottomOffset;
+    self.view.frame = CGRectMake(x,y+height,width, height);
+    self.view.alpha = 0;
+    self.view.hidden = NO;
+    self->noticeSize = CGRectMake(x,y,width, height);
+    [self->lbNoticeText setFrame:CGRectMake(5, 5, size.width, size.height)];
+    self->lbNoticeText.center = CGPointMake(width/2, height/2);
 }
 
 -(void)hide {
     self->closeTimer = nil;
-    [self->lbNoticeText setHidden:YES];
     [UIView animateWithDuration:0.2 animations:^{
-        self.view.layer.cornerRadius = 4;
-        [self.view setFrame:CGRectMake(self->noticeSize.origin.x + self->noticeSize.size.width/2 , self->noticeSize.origin.y +self->noticeSize.size.height/2 , 0.1 , 0.1)];
-    } completion:^(BOOL finished) {
-        [self.view setHidden:YES];
+        self.view.alpha = 0;
+        [self.view setFrame:CGRectMake(self->noticeSize.origin.x  , self->noticeSize.origin.y -self->noticeSize.size.height,  self->noticeSize.size.width ,  self->noticeSize.size.height)];
     }];
 }
 
@@ -136,8 +137,32 @@
         [self->closeTimer invalidate];
         self->closeTimer = nil;
     }
-    [self->lbNoticeText setHidden:YES];
     [self.view setHidden:YES];
+}
+
+/*!
+ *@method showNotice:showTime:showBottomOffset:
+ *显示提示信息
+ *@param view 需要显示提示信息的view
+ *@param showTime 显示时间
+ *@param showBottomOffset 显示距离底部Y坐标偏移量
+ *@param noticeText 显示的提示文本
+ */
++(void)showNotice:(UIView*)view showTime:(int)showTime showBottomOffset:(double)offset noticeText:(NSString*)text{
+    BOOL showAni = YES;
+    for (UIView* v in view.subviews) {
+        UIResponder *nextResponder = [v nextResponder];
+        if ([nextResponder isMemberOfClass:[ZYNoticeViewController class]]) {
+            [((ZYNoticeViewController *)nextResponder) hideNow];
+            showAni = NO;
+        }
+    }
+    ZYNoticeViewController *noticeController = [[ZYNoticeViewController alloc]initWithParentView:view];
+    [noticeController show:text showTime:showTime showBottomOffset:offset showAni:showAni];
+}
+
++(void)showNotice:(UIView*)view noticeText:(NSString*)text {
+    [ZYNoticeViewController showNotice:view showTime:3 showBottomOffset:0 noticeText:text];
 }
 
 @end

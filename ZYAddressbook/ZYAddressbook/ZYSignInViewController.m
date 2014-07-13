@@ -34,30 +34,29 @@
 
 - (IBAction)btnSignin_TouchDown:(UIButton *)sender {
     [self.view endEditing:YES];
-//    if (self.imgAvatar.frame.size.width == 30) {
-//        [UIView animateWithDuration:0.2 animations:^{
-//            [self.imgAvatar setFrame:CGRectMake(100, 100, 120, 120)];
-//            for (UIView* v in self.view.subviews) {
-//                if ([v isMemberOfClass:[UITextField class]] || [v isMemberOfClass:[UIButton class]] ) {
-//                    [v setFrame:CGRectMake(v.frame.origin.x, v.frame.origin.y + 105, v.frame.size.width, v.frame.size.height)];
-//                }
-//            }
-//        } completion:^(BOOL finished) {
-//            [self signIn];
-//        }];
-//    }
-//    else {
-//        [self signIn];
-//    }
-    ZYContactsViewController *contactsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ZYContactsViewController"];
-    [self presentViewController:contactsViewController animated:YES completion:nil];
+    if (self.imgAvatar.frame.size.width == 30) {
+        [UIView animateWithDuration:0.2 animations:^{
+            [self.imgAvatar setFrame:CGRectMake(100, 100, 120, 120)];
+            [self.btnRegist setFrame:CGRectMake(self.btnRegist.frame.origin.x, self.btnRegist.frame.origin.y + 105, self.btnRegist.frame.size.width, self.btnRegist.frame.size.height)];
+            [self.btnSignIn setFrame:CGRectMake(self.btnSignIn.frame.origin.x, self.btnSignIn.frame.origin.y + 105, self.btnSignIn.frame.size.width, self.btnSignIn.frame.size.height)];
+            [self.txtAccount setFrame:CGRectMake(self.txtAccount.frame.origin.x, self.txtAccount.frame.origin.y + 105, self.txtAccount.frame.size.width, self.txtAccount.frame.size.height)];
+            [self.txtPassword setFrame:CGRectMake(self.txtPassword.frame.origin.x, self.txtPassword.frame.origin.y + 105, self.txtPassword.frame.size.width, self.txtPassword.frame.size.height)];
+        } completion:^(BOOL finished) {
+            [self signIn];
+        }];
+    }
+    else {
+        [self signIn];
+    }
 }
 
 -(void)signIn {
-    [self -> loadingViewController show];
-
-    ZYUserService* userService = [[ZYUserService alloc] init];
-    [userService verifyUserBy:self.txtAccount.text password:self.txtPassword.text httpResponseDelagete:self];
+    ZYContactsTableViewController *contactsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainView"];
+    [self presentViewController:contactsViewController animated:YES completion:nil];
+//    [self -> loadingViewController show];
+//
+//    ZYUserService* userService = [[ZYUserService alloc] init];
+//    [userService verifyUserBy:self.txtAccount.text password:self.txtPassword.text httpResponseDelagete:self];
 }
 
 /*!
@@ -75,14 +74,7 @@
  */
 -(void)httpRequestFaild:(NSString *)errorMsg {
     [self -> loadingViewController hide];
-    for (UIView* v in self.view.subviews) {
-            UIResponder *nextResponder = [v nextResponder];
-            if ([nextResponder isMemberOfClass:[ZYNoticeViewController class]]) {
-                [((ZYNoticeViewController *)nextResponder) hideNow];
-            }
-    }
-    ZYNoticeViewController *noticeController = [[ZYNoticeViewController alloc]initWithParentView:self.view];
-    [noticeController show: [[NSString alloc]initWithFormat:@"error %@ %@",errorMsg,[NSDate date]]];
+    [ZYNoticeViewController showNotice:self.view showTime:3 showBottomOffset:0 noticeText:errorMsg];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
@@ -92,11 +84,10 @@
     
     [UIView animateWithDuration:0.2 animations:^{
         [self.imgAvatar setFrame:CGRectMake(145, 85, 30, 30)];
-        for (UIView* v in self.view.subviews) {
-            if ([v isMemberOfClass:[UITextField class]] || [v isMemberOfClass:[UIButton class]] ) {
-                [v setFrame:CGRectMake(v.frame.origin.x, v.frame.origin.y - 105, v.frame.size.width, v.frame.size.height)];
-            }
-        }
+        [self.btnRegist setFrame:CGRectMake(self.btnRegist.frame.origin.x, self.btnRegist.frame.origin.y - 105, self.btnRegist.frame.size.width, self.btnRegist.frame.size.height)];
+        [self.btnSignIn setFrame:CGRectMake(self.btnSignIn.frame.origin.x, self.btnSignIn.frame.origin.y - 105, self.btnSignIn.frame.size.width, self.btnSignIn.frame.size.height)];
+        [self.txtAccount setFrame:CGRectMake(self.txtAccount.frame.origin.x, self.txtAccount.frame.origin.y - 105, self.txtAccount.frame.size.width, self.txtAccount.frame.size.height)];
+        [self.txtPassword setFrame:CGRectMake(self.txtPassword.frame.origin.x, self.txtPassword.frame.origin.y - 105, self.txtPassword.frame.size.width, self.txtPassword.frame.size.height)];
     }];
     return YES;
 }
