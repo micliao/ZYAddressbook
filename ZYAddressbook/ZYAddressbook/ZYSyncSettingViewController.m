@@ -39,7 +39,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     selectedCell.selected = NO;
-    [ZYNoticeViewController showNotice:self.view showTime:3 showBottomOffset:90 noticeText:selectedCell.textLabel.text];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
