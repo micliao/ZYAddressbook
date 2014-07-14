@@ -32,9 +32,7 @@
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(addPeople)];
-    
+
     ZYContactPeopleService *service = [[ZYContactPeopleService alloc]init];
     ZYNSMutableDictionary *c = [service getAllContactPeoplesGroupByFirstLetterExcept:self.exsitsPeople];
     if ([c keyForIndex:0]) {
@@ -84,6 +82,9 @@
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     [selectedCell setAccessoryType:UITableViewCellAccessoryCheckmark];
     [addContacts addObject:allContacts[indexPath.section][indexPath.row]];
+    if (self.navigationItem.rightBarButtonItem == nil) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(addPeople)];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {

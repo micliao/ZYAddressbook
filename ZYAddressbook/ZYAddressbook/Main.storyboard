@@ -392,12 +392,12 @@
         <scene sceneID="bQW-dV-6WP">
             <objects>
                 <tableViewController id="gaF-Km-UFO" customClass="ZYNameListViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xof-nm-fGj">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xof-nm-fGj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="People" textLabel="gIi-Eu-0Nm" style="IBUITableViewCellStyleDefault" id="eJ6-uz-Xs2">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="People" textLabel="gIi-Eu-0Nm" style="IBUITableViewCellStyleDefault" id="eJ6-uz-Xs2">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eJ6-uz-Xs2" id="NMp-jM-KNu">
@@ -771,7 +771,9 @@
         <scene sceneID="z3b-bA-AsN">
             <objects>
                 <navigationController definesPresentationContext="YES" id="0N5-Lw-h4e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我" image="user" id="paC-4f-Xhq"/>
+                    <tabBarItem key="tabBarItem" title="我" image="user" id="paC-4f-Xhq">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="858-zb-Pe1">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -787,7 +789,9 @@
         <scene sceneID="ncx-eg-ylK">
             <objects>
                 <navigationController definesPresentationContext="YES" id="BoI-RD-0gc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="同步设置" image="sync" id="cQe-R4-Rcl"/>
+                    <tabBarItem key="tabBarItem" title="同步设置" image="sync" id="cQe-R4-Rcl">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DdX-7c-OUI">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -803,7 +807,9 @@
         <scene sceneID="DP1-XN-D1X">
             <objects>
                 <navigationController definesPresentationContext="YES" id="pJr-kB-zGv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="通讯录" image="contact" id="ocN-qM-guF"/>
+                    <tabBarItem key="tabBarItem" title="通讯录" image="contact" id="ocN-qM-guF">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dsp-JE-rQt">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

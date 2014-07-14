@@ -31,39 +31,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+
     self->syncNowButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(syncNow)];
     self->addButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addContact)];
     self.navigationItem.rightBarButtonItem = self->addButton;
     self.navigationItem.leftBarButtonItem = self->syncNowButton;
     
     ZYContactPeopleService *service = [[ZYContactPeopleService alloc]init];
-    ZYNSMutableDictionary *contactPeople = [service getAllCachedContactPeoplesGroupByFirstLetter];
-    if (contactPeople == nil || contactPeople.realDictionary == nil || contactPeople.realDictionary.count == 0) {
-        contactPeople = [service getAllContactPeoplesGroupByFirstLetter];
-        if ([contactPeople keyForIndex:0]) {
-            self->allContacts = contactPeople[0];
-            if (self->allContacts != nil && self->allContacts.realDictionary != nil && [self->allContacts.realDictionary count] > 0) {
-                [service setContactPeoplesCache:contactPeople[0]];
-            }
-            else {
-                [ZYNoticeViewController showNotice:self.view showTime:3 showBottomOffset:90 noticeText:@"通讯录是空的，请登录账号同步通讯录到本地"];
-            }
-        }
-        else {
-            [ZYNoticeViewController showNotice:self.view showTime:3 showBottomOffset:90 noticeText:@"未授权访问通讯录，请在系统设置里允许"];
-        }
+    ZYNSMutableDictionary *contactPeople = [service getAllContactPeoplesGroupByFirstLetter];
+    if ([contactPeople keyForIndex:0]) {
+        self->allContacts = contactPeople[0];
     }
     else {
-        self->allContacts = contactPeople;
+        [ZYNoticeViewController showNotice:self.view showTime:3 showBottomOffset:90 noticeText:@"未授权访问通讯录，请在系统设置里允许访问"];
     }
     
-//    ZYContactSyncService *syncService = [[ZYContactSyncService alloc]init];
-//    [syncService syncContact:self];
+    //[self syncNow];
 }
 
 - (void)didReceiveMemoryWarning
@@ -125,7 +108,7 @@
     return titleArray;
 }
 
-//tableview delegate
+#pragma mark - tableview delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
@@ -154,7 +137,7 @@
     
 }
 
-//searchdisplay delegate
+#pragma mark - searchdisplay delegate
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
     if(self->searchedContacts == nil) {
@@ -173,7 +156,8 @@
     return YES;
 }
 
-//navigation bar
+#pragma mark - navigation bar
+
 -(void)addContact {
     //UITableViewController *addControler = [self.storyboard instantiateViewControllerWithIdentifier:@"AddContact"];
     ABNewPersonViewController *addControler = [[ABNewPersonViewController alloc]init];
@@ -193,16 +177,5 @@
     ZYContactSyncService *syncService = [[ZYContactSyncService alloc]init];
     [syncService syncContact:self];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
