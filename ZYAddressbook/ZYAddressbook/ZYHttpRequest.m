@@ -20,12 +20,15 @@
  */
 -(ZYHttpRequest*)initWithRequestUrl:(NSString*)requestUrl method:(NSString*)method respenseDelegate:(id<ZYHttpResponseDelegate>)delegate
 {
-    self -> httpRequestUrl = requestUrl;
-    self -> httpMethod = method;
-    self -> httpResponseDelegate = delegate;
-    self -> paramaterFormat = @"%@=%@";
-    self -> paramaters = [[NSMutableDictionary alloc] init];
-    self -> isRequestSuccess = YES;
+    self = [super init];
+    if (self) {
+        self -> httpRequestUrl = requestUrl;
+        self -> httpMethod = method;
+        self -> httpResponseDelegate = delegate;
+        self -> paramaterFormat = @"%@=%@";
+        self -> paramaters = [[NSMutableDictionary alloc] init];
+        self -> isRequestSuccess = YES;
+    }
     return self;
 }
 

@@ -25,8 +25,11 @@
 }
 
 -(id)init {
-    self->dictionary = [[NSMutableDictionary alloc]init];
-    self->indexArray = [[NSMutableArray alloc]init];
+    self = [super init];
+    if (self) {
+        self->dictionary = [[NSMutableDictionary alloc]init];
+        self->indexArray = [[NSMutableArray alloc]init];
+    }
     return self;
 }
 
@@ -75,8 +78,11 @@
  */
 -(id)initWithIndexedObjects:(NSArray *)objects forKeys:(NSArray *)keys
 {
-    self->dictionary = [[NSMutableDictionary alloc]initWithObjects:objects forKeys:keys];
-    self->indexArray = [[NSMutableArray alloc]initWithArray:keys copyItems:YES];
+    self = [super init];
+    if (self) {
+        self->dictionary = [[NSMutableDictionary alloc]initWithObjects:objects forKeys:keys];
+        self->indexArray = [[NSMutableArray alloc]initWithArray:keys copyItems:YES];
+    }
     return self;
 }
 

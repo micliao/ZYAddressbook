@@ -121,10 +121,16 @@
 }
 
 -(void)hide {
-    self->closeTimer = nil;
+    if (self->closeTimer != nil) {
+        [self->closeTimer invalidate];
+        self->closeTimer = nil;
+    }
     [UIView animateWithDuration:0.2 animations:^{
         self.view.alpha = 0;
         [self.view setFrame:CGRectMake(self->noticeSize.origin.x  , self->noticeSize.origin.y -self->noticeSize.size.height,  self->noticeSize.size.width ,  self->noticeSize.size.height)];
+    } completion:^(BOOL finished) {
+        [self.view setHidden:YES];
+        [self.view removeFromSuperview];
     }];
 }
 
@@ -138,6 +144,7 @@
         self->closeTimer = nil;
     }
     [self.view setHidden:YES];
+    [self.view removeFromSuperview];
 }
 
 /*!
@@ -154,6 +161,7 @@
         UIResponder *nextResponder = [v nextResponder];
         if ([nextResponder isMemberOfClass:[ZYNoticeViewController class]]) {
             [((ZYNoticeViewController *)nextResponder) hideNow];
+            nextResponder = nil;
             showAni = NO;
         }
     }

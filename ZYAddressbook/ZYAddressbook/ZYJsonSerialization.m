@@ -40,7 +40,7 @@
         if (jsonData == nil) {
             return nil;
         }
-        NSString *json = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSString *json = [[[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding] autorelease];
         return json;
     }
 }

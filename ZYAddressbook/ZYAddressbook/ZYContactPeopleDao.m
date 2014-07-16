@@ -49,7 +49,9 @@
     else {
         tmpAddressBook = ABAddressBookCreate();
     }
-    return [[NSArray alloc]initWithObjects:[[NSNumber alloc] initWithBool:accessGranted], ABAddressBookCopyArrayOfAllPeople(tmpAddressBook),nil];
+    NSArray *addressArray = (NSArray*)CFBridgingRelease(ABAddressBookCopyArrayOfAllPeople(tmpAddressBook));
+    CFRelease(tmpAddressBook);
+    return [[NSArray alloc]initWithObjects:[[NSNumber alloc] initWithBool:accessGranted], addressArray,nil];
 }
 
 /*
@@ -60,11 +62,11 @@
  */
 -(ZYContactPeople*)convertAddressbookRecord:(ABRecordRef)people {
     ZYContactPeople *contact = [[ZYContactPeople alloc]init];
-    contact.firstName = (__bridge NSString *)(ABRecordCopyValue(people, kABPersonFirstNameProperty));
-    contact.middleName = (__bridge NSString *)(ABRecordCopyValue(people, kABPersonMiddleNameProperty));
-    contact.lastName = (__bridge NSString *)(ABRecordCopyValue(people, kABPersonLastNameProperty));
+    contact.firstName = (NSString *)CFBridgingRelease(ABRecordCopyValue(people, kABPersonFirstNameProperty));
+    contact.middleName = ( NSString *)CFBridgingRelease(ABRecordCopyValue(people, kABPersonMiddleNameProperty));
+    contact.lastName = ( NSString *)CFBridgingRelease(ABRecordCopyValue(people, kABPersonLastNameProperty));
     contact.phoneKey = (NSInteger)ABRecordGetRecordID(people);
-    contact.lastestDateTime = (__bridge NSDate*)ABRecordCopyValue(people, kABPersonModificationDateProperty);
+    contact.lastestDateTime = (NSDate*)CFBridgingRelease(ABRecordCopyValue(people, kABPersonModificationDateProperty));
     return contact;
 }
 
@@ -81,8 +83,9 @@
     
     if (addressBooks != nil && [addressBooks count] > 0){
         for(NSObject *people in addressBooks) {
-            ZYContactPeople *contact = [self convertAddressbookRecord:(__bridge ABRecordRef)(people)];
+            ZYContactPeople *contact = [self convertAddressbookRecord:(ABRecordRef)(people)];
             [contacts addObject:contact];
+            CFRelease(CFBridgingRetain(people));
         }
     }
     
@@ -103,20 +106,20 @@
     
     if (addressBooks != nil && [addressBooks count] > 0){
         for(NSObject *people in addressBooks) {
-            NSInteger phoneKey = (NSInteger)ABRecordGetRecordID((__bridge ABRecordRef)(people));
+            ZYContactPeople *contact = [self convertAddressbookRecord:(ABRecordRef)(people)];
             BOOL isExcept = NO;
             if (exceptPhonekeys != nil && [exceptPhonekeys count] > 0) {
                 for (NSNumber *key in exceptPhonekeys) {
-                    if ([key integerValue] == phoneKey) {
+                    if ([key integerValue] == contact.phoneKey) {
                         isExcept = YES;
                         break;
                     }
                 }
             }
             if (!isExcept) {
-                ZYContactPeople *contact = [self convertAddressbookRecord:(__bridge ABRecordRef)(people)];
                 [contacts addObject:contact];
             }
+            CFRelease(CFBridgingRetain(people));
         }
     }
     

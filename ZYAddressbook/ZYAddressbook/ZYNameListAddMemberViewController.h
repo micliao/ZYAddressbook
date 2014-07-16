@@ -13,6 +13,6 @@
 @interface ZYNameListAddMemberViewController : UITableViewController
 
 @property NSMutableArray *exsitsPeople;
-@property(weak) id delegate;
+@property id delegate;
 
 @end

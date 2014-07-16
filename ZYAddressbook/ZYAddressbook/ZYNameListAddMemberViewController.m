@@ -11,7 +11,6 @@
 @interface ZYNameListAddMemberViewController ()
 {
     ZYNSMutableDictionary *allContacts;
-    NSMutableArray *addContacts;
 }
 @end
 
@@ -38,7 +37,6 @@
     if ([c keyForIndex:0]) {
         allContacts = c[0];
     }
-    addContacts = [[NSMutableArray alloc]init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,7 +79,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     [selectedCell setAccessoryType:UITableViewCellAccessoryCheckmark];
-    [addContacts addObject:allContacts[indexPath.section][indexPath.row]];
     if (self.navigationItem.rightBarButtonItem == nil) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(addPeople)];
     }
@@ -90,12 +87,17 @@
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     [selectedCell setAccessoryType:UITableViewCellAccessoryNone];
-    [addContacts removeObject:allContacts[indexPath.section][indexPath.row]];
 }
 
 -(void)addPeople {
-    ZYNameListViewController *target = (ZYNameListViewController*)self.delegate;
-    [target reloadData:addContacts];
+    if ([self.tableView indexPathsForSelectedRows] != nil && [[self.tableView indexPathsForSelectedRows] count] > 0) {
+        ZYNameListViewController *target = (ZYNameListViewController*)self.delegate;
+        NSMutableArray *addContacts = [[NSMutableArray alloc]init];
+        for (NSIndexPath *indexPath in [self.tableView indexPathsForSelectedRows]) {
+            [addContacts addObject:allContacts[indexPath.section][indexPath.row] ];
+        }
+        [target reloadData:addContacts];
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
