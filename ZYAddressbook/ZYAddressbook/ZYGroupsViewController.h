@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ZYGroup.h"
 
-@interface ZYGroupsViewController : UITableViewController
+@interface ZYGroupsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *groupTable;
 
 @end

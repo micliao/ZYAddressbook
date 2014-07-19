@@ -10,6 +10,7 @@
 		83089C19196399E100B323C8 /* ZYContactSyncService.m in Sources */ = {isa = PBXBuildFile; fileRef = 83089C18196399E100B323C8 /* ZYContactSyncService.m */; };
 		83089C1C196399F600B323C8 /* ZYContactSyncDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 83089C1B196399F600B323C8 /* ZYContactSyncDao.m */; };
 		83089C1F1963AD3E00B323C8 /* ZYContactMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 83089C1E1963AD3E00B323C8 /* ZYContactMapping.m */; };
+		83114429197A9FAC0015FFC7 /* ZYSyncPropertySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83114428197A9FAC0015FFC7 /* ZYSyncPropertySettingViewController.m */; };
 		8313A81B19654CF0003F4EE7 /* NSDate+NSDateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8313A81A19654CF0003F4EE7 /* NSDate+NSDateExtension.m */; };
 		8318363D1960F77C0098C82F /* NSString+NSStringExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8318363C1960F77C0098C82F /* NSString+NSStringExtension.m */; };
 		831957AC1962970800675C68 /* ZYArchiveCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 831957AB1962970800675C68 /* ZYArchiveCache.m */; };
@@ -77,6 +78,8 @@
 		83089C1B196399F600B323C8 /* ZYContactSyncDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYContactSyncDao.m; sourceTree = "<group>"; };
 		83089C1D1963AD3E00B323C8 /* ZYContactMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYContactMapping.h; sourceTree = "<group>"; };
 		83089C1E1963AD3E00B323C8 /* ZYContactMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYContactMapping.m; sourceTree = "<group>"; };
+		83114427197A9FAC0015FFC7 /* ZYSyncPropertySettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSyncPropertySettingViewController.h; sourceTree = "<group>"; };
+		83114428197A9FAC0015FFC7 /* ZYSyncPropertySettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSyncPropertySettingViewController.m; sourceTree = "<group>"; };
 		8313A81719653A81003F4EE7 /* ZYContactSyncDaoDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYContactSyncDaoDelegate.h; sourceTree = "<group>"; };
 		8313A81819653BA4003F4EE7 /* ZYContactSyncServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYContactSyncServiceDelegate.h; sourceTree = "<group>"; };
 		8313A81919654CF0003F4EE7 /* NSDate+NSDateExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+NSDateExtension.h"; sourceTree = "<group>"; };
@@ -454,6 +457,8 @@
 				83C3C4AF1972C9420015E248 /* ZYNameListAddMemberViewController.m */,
 				831D724E1976B9A10098977A /* ZYGroupsViewController.h */,
 				831D724F1976B9A10098977A /* ZYGroupsViewController.m */,
+				83114427197A9FAC0015FFC7 /* ZYSyncPropertySettingViewController.h */,
+				83114428197A9FAC0015FFC7 /* ZYSyncPropertySettingViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -599,6 +604,7 @@
 				83089C1F1963AD3E00B323C8 /* ZYContactMapping.m in Sources */,
 				83BA10711965549400B0D209 /* ZYJsonSerialization.m in Sources */,
 				83C982BA195AA9F9005E9905 /* ZYSignInViewController.m in Sources */,
+				83114429197A9FAC0015FFC7 /* ZYSyncPropertySettingViewController.m in Sources */,
 				8359AF3C195981F100519EF7 /* ZYAppDelegate.m in Sources */,
 				831D72501976B9A10098977A /* ZYGroupsViewController.m in Sources */,
 				ED9A7908195A7FAF0016A739 /* ZYUserService.m in Sources */,

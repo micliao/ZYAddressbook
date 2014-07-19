@@ -11,13 +11,13 @@
 @implementation ZYContactInfo
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.propertyLabel forKey:@"propertyLabel"];
+    [aCoder encodeObject:self.propertyName forKey:@"propertyLabel"];
     [aCoder encodeObject:self.propertyValue forKey:@"propertyValue"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super init]) {
-        self.propertyLabel = [aDecoder decodeObjectForKey:@"propertyLabel"];
+        self.propertyName = [aDecoder decodeObjectForKey:@"propertyLabel"];
         self.propertyValue = [aDecoder decodeObjectForKey:@"propertyValue"];
     }
     

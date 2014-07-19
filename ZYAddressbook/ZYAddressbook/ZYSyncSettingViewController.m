@@ -7,6 +7,7 @@
 //
 
 #import "ZYSyncSettingViewController.h"
+#import "ZYSyncPropertySettingViewController.h"
 
 @implementation ZYSyncSettingViewController
 
@@ -47,12 +48,15 @@
         UITableViewCell* cell = (UITableViewCell*)sender;
         switch(cell.tag){
             case 0:
-                [((ZYNameListViewController*)segue.destinationViewController).navigationItem setTitle:@"白名单"];
-                ((ZYNameListViewController*)segue.destinationViewController).isWhiteNameList = YES;
-                break;
             case 1:
-                [((ZYNameListViewController*)segue.destinationViewController).navigationItem setTitle:@"黑名单"];
-                ((ZYNameListViewController*)segue.destinationViewController).isWhiteNameList = NO;
+                [((ZYNameListViewController*)segue.destinationViewController).navigationItem setTitle:cell.tag == 0 ? @"白名单":@"黑名单"];
+                ((ZYNameListViewController*)segue.destinationViewController).groupName = cell.tag == 0 ? @"白名单":@"黑名单";
+                 ((ZYNameListViewController*)segue.destinationViewController).groupId = cell.tag == 0 ? -1:-2;
+                break;
+            case 4:
+            case 5:
+                [((ZYSyncPropertySettingViewController*)segue.destinationViewController).navigationItem setTitle:cell.tag == 4?@"推送信息设置":@"同步信息设置"];
+                [((ZYSyncPropertySettingViewController*)segue.destinationViewController) setSettingType:cell.tag == 4?0:1];
                 break;
                 default:
                 break;

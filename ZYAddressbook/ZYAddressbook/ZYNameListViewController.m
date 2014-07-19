@@ -101,7 +101,7 @@
     ZYNameListAddMemberViewController *target = [self.storyboard instantiateViewControllerWithIdentifier:@"AddNameListView"];
     target.exsitsPeople = self.nameList;
     target.delegate = self;
-    [self.navigationItem.backBarButtonItem setTitle:self.isWhiteNameList?@"白名单":@"黑名单"];
+    [self.navigationItem.backBarButtonItem setTitle:self.groupName];
     [self.navigationController pushViewController:target animated:YES];
 }
 
@@ -114,7 +114,7 @@
             return [[peo1 nameLetters] compare:[peo2 nameLetters]];
         }]];
         [self.tableView reloadData];
-        [self.navigationItem setTitle:[NSString stringWithFormat:@"%@(%d)", (self.isWhiteNameList?@"白名单":@"黑名单"),(self.nameList == nil? 0 : [self.nameList count])]];
+        [self.navigationItem setTitle:[NSString stringWithFormat:@"%@(%d)", self.groupName,(self.nameList == nil? 0 : [self.nameList count])]];
     }
 }
 
@@ -139,7 +139,7 @@
         [self.tableView deleteRowsAtIndexPaths:[self.tableView indexPathsForSelectedRows] withRowAnimation:UITableViewRowAnimationFade];
     }
     self.navigationItem.rightBarButtonItem = self->addBtn;
-    [self.navigationItem setTitle:[NSString stringWithFormat:@"%@(%d)", (self.isWhiteNameList?@"白名单":@"黑名单"),(self.nameList == nil? 0 : [self.nameList count])]];
+    [self.navigationItem setTitle:[NSString stringWithFormat:@"%@(%d)", self.groupName,(self.nameList == nil? 0 : [self.nameList count])]];
 }
 
 

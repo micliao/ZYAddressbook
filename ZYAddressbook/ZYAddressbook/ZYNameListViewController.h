@@ -11,8 +11,9 @@
 
 @interface ZYNameListViewController : UITableViewController
 
-@property BOOL isWhiteNameList;
+@property NSInteger groupId;
 @property NSMutableArray* nameList;
+@property NSString *groupName;
 
 -(void)reloadData:(NSArray*)addContacts;
 

@@ -16,20 +16,10 @@
 @interface ZYContactInfo : NSObject<NSCoding>
 
 //属性名称
-@property NSString *propertyLabel;
+@property NSString *propertyName;
 //属性值
 @property NSObject *propertyValue;
 
 -(BOOL)isContains:(NSString*)searchText;
 
 @end
-
-/*!
- @enum ZYContactInfoType
- @abstract 通讯录属性类型
- */
-enum ZYContactInfoType {
-    TelephoneNumber,
-    Email,
-    Birthday
-};
