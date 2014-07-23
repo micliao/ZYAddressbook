@@ -43,10 +43,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     selectedCell.selected = NO;
-    if (indexPath.section == 0) {
-        [ZYNoticeViewController showNotice:self.view showTime:3 showBottomOffset:90 noticeText:@"micliao"];
-    }
-    else {
+    if (indexPath.section != 0) {
         [ZYNoticeViewController showNotice:self.view showTime:3 showBottomOffset:90 noticeText:selectedCell.textLabel.text];
     }
 }
